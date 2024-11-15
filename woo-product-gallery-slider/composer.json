@@ -15,13 +15,7 @@
         "appsero/client": "1.2.4"
     },
     "autoload": {
-        "files": [
-            "includes/functions.php",
-            "includes/codestar/codestar-framework.php",
-            "includes/core.php",
-            "includes/class-image-sizes.php",
-            "includes/class-variation-images.php"
-        ],
+        
         "psr-4": {
             "Product_Gallery_Sldier\\": "src/"
         }

@@ -14,6 +14,10 @@ class Options {
 
 		$this->jvmw_data();
 		$this->pluginOptions();
+		add_action( 'csf_wpgs_form_save_after', array( $this, 'save_after' ) );
+	}
+	public function save_after(): void {
+		\WPGS_Variation_images::delete_transients();
 	}
 	/**
 	 * Get data of wishlist plugin
@@ -25,19 +29,19 @@ class Options {
 
 		if ( is_plugin_active( 'jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php' ) ) {
 
-			$this->jvmw_title     = __( 'Check Options', 'woo-product-gallery-slider' );
+			$this->jvmw_title      = __( 'Check Options', 'woo-product-gallery-slider' );
 			$this->jvmw_activate   = true;
 			$this->jvmw_plugin_url = apply_filters( 'cosm_admin_page', admin_url( 'admin.php?page=cixwishlist_settings' ) );
 
 		} elseif ( file_exists( WP_PLUGIN_DIR . '/jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php' ) ) {
 
-			$this->jvmw_title     = __( 'Activate Now', 'woo-product-gallery-slider' );
+			$this->jvmw_title      = __( 'Activate Now', 'woo-product-gallery-slider' );
 			$this->jvmw_activate   = false;
 			$this->jvmw_plugin_url = wp_nonce_url( 'plugins.php?action=activate&plugin=jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php&plugin_status=all&paged=1', 'activate-plugin_jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php' );
 
 		} else {
 
-			$this->jvmw_title     = __( 'Install Now', 'woo-product-gallery-slider' );
+			$this->jvmw_title      = __( 'Install Now', 'woo-product-gallery-slider' );
 			$this->jvmw_activate   = false;
 			$this->jvmw_plugin_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=jvm-woocommerce-wishlist' ), 'install-plugin_jvm-woocommerce-wishlist' );
 

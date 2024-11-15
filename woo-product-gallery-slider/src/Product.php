@@ -7,8 +7,23 @@ class Product {
 	 * @var mixed
 	 */
 	private $wpgs_variation_images;
+	/**
+	 * Initializes a singleton instance
+	 *
+	 * @return $instance
+	 */
+	public static function get_instance() {
 
-	public function __construct() {
+		/**
+		 * @var mixed
+		 */
+		static $instance = false;
+		if ( ! $instance ) {
+			$instance = new self();
+		}
+		return $instance;
+	}
+	private function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ), 90 );
 		add_action( 'after_setup_theme', array( $this, 'remove_default_gallery_support' ), 100 );
 		$this->hooks();
