@@ -76,12 +76,11 @@ class Product {
 	 * @return mixed
 	 */
 	public function hooks() {
+
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 		remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
 		add_action( 'woocommerce_before_single_product_summary', array( $this, 'wpgs_product_image' ), 20 );
-		if ( wpgs_get_option( 'load_assets' ) == '1' ) {
-			add_filter( 'wpgs_load_entrie_site', '__return_true' );
-		}
+
 		add_filter(
 			'woocommerce_gallery_image_size',
 			function ( $size ) {

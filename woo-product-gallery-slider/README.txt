@@ -4,7 +4,7 @@ Tags: additional variation image, product gallery slider,woocommerce product gal
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  6.7
-Stable tag: 2.3.12
+Stable tag: 2.3.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,9 +132,15 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 == Changelog ==
 
+= 2.3.13 -26 Nov 24 =
+
+* Tweak: Update the Appsero SDK as it is causing the `_load_textdomain_just_in_time` error in WordPress version 6.7.x.   
+
+
 = 2.3.12 -20 Nov 24 =
 
 * Fixed: Fatal error on activation.
+
 
 = 2.3.11 -15 Nov 24 =
 
