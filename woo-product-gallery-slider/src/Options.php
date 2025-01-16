@@ -80,6 +80,11 @@ class Options {
 					// A Notice
 					array(
 						'type'    => 'submessage',
+						'style'   => 'warning',
+						'content' => '<p style="font-size:15px">✨ Secure the pro version lifetime deal at a discounted price before it’s too late! <a target="_" href="https://www.codeixer.com/gallery-slider-for-woocommerce/#pricing-v2?utm_source=freemium&amp;utm_medium=admin_top_banner&amp;utm_campaign=ltd_twist">Claim your copy now.</a></p>',
+					),
+					array(
+						'type'    => 'submessage',
 						'style'   => 'info',
 						'content' => '<p style="font-size:15px">🎉  We\'re excited to share our new free plugin - <strong>WooCommerce Wishlist</strong>. It\'s a fantastic tool that lets your customers create wishlists and enhances their shopping experience. Give it a try! <a href="' . esc_url( $this->jvmw_plugin_url ) . '">' . esc_html( $this->jvmw_title ) . '</a></p>',
 					),

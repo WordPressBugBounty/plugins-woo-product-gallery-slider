@@ -5,7 +5,7 @@
  * Plugin Name:       Product Gallery Slider for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woo-product-gallery-slider/
  * Description:       Best product image gallery slider for WooCommerce. It shows your WooCommerce products with an image carousel slider. Beautiful style, increase sales and get customer attention.
- * Version:           2.3.14
+ * Version:           2.3.15
  * Author:            Codeixer
  * Author URI:        http://codeixer.com
  * License:           GPL-2.0+
@@ -14,7 +14,7 @@
  * Domain Path:       /languages
  * Tested up to: 6.7
  * WC requires at least: 3.9
- * WC tested up to: 9.4.1
+ * WC tested up to: 9.5.2
  * Requires PHP: 7.4
  * Requires Plugin: WooCommerce
  */
@@ -24,6 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 require __DIR__ . '/vendor/autoload.php';
+
 
 define( 'WPGS_NAME', 'Product Gallery Slider for Woocommerce' );
 define( 'WPGS_INC', plugin_dir_path( __FILE__ ) . 'includes/' );
@@ -37,15 +38,20 @@ define( 'WPGS_PLUGIN_BASE', plugin_basename( __FILE__ ) );
  *
  * @return void
  */
-function appsero_init_tracker_woo_product_gallery_slider() {
+require __DIR__ . '/includes/usage-tracking/Client.php';
+function cdx_init_tracker_woo_product_gallery_slider() {
 
-	$client = new Appsero\Client( '862a2d3f-9bbf-42f4-a1ae-89a36cde4e79', 'Product Gallery Slider for WooCommerce', __FILE__ );
+	$client = new NS7_UT\Client(
+		'862a2d3f-9bbf-42f4-a1ae-89a36cde4e79',
+		'Product Gallery Slider for WooCommerce',
+		__FILE__
+	);
 
 	// Active insights
-	$client->insights()->init();
+	$client->insights()->add_plugin_data()->init();
 }
 
-appsero_init_tracker_woo_product_gallery_slider();
+cdx_init_tracker_woo_product_gallery_slider();
 
 NS7_RDNC::instance()->add_notification( 72, 'a9873a6e608e946e', 'https://www.codeixer.com' );
 
@@ -67,7 +73,7 @@ final class CI_WPGS {
 	const version = '2.3.14';
 
 	private function __construct() {
-		
+
 		register_activation_hook( __FILE__, array( $this, 'activation' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivation' ) );
 

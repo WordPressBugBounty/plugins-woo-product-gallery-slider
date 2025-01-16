@@ -30,20 +30,8 @@ class Bootstrap {
 		add_action( 'admin_init', array( $this, 'wcpg_param_check' ), 10 );
 		add_action( 'plugin_action_links_' . CIPG_FILE, array( $this, 'wpgs_plugin_row_meta' ), 90 );
 		add_action( 'admin_init', array( 'PAnD', 'init' ) );
-		add_action( 'admin_notices', array( $this, 'get_pro_version_notice' ) );
 	}
-	function get_pro_version_notice() {
-		if ( ! \PAnD::is_admin_notice_active( 'twist-getpro-notice-45' ) ) {
-			return;
-		}
-
-		?>
-		<div data-dismissible="twist-getpro-notice-45" class="notice notice-warning is-dismissible">
-			<p><b>Thank you for using <?php echo WPGS_NAME; ?>.</b> <?php _e( 'Get the pro version to unlock more features and customization options ', 'woo-product-gallery-slider' ); ?><a target="_" href="https://www.codeixer.com/gallery-slider-for-woocommerce?utm_source=wp-org&utm_medium=wp-admin&utm_campaign=twist-getpro-notice-45">Premium Version</a></p>
-			
-		</div>
-		<?php
-	}
+	
 	/**
 	 * Admin scripts/styles
 	 *

@@ -2,7 +2,6 @@
 
 namespace Product_Gallery_Sldier;
 
-
 class Product {
 	/**
 	 * @var mixed

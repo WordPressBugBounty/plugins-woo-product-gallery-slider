@@ -262,7 +262,7 @@
 				DivParent = body_wrap.find('.woocommerce-product-gallery').parent();
 			variation_form.on('found_variation', function (event, variation) {
 
-					
+
 				if (wpgs_variation_list.hasOwnProperty(variation.variation_id)) {
 
 					body_wrap.find('.woocommerce-product-gallery').remove();
@@ -286,6 +286,15 @@
 							}
 						});
 						cix_product_gallery_slider.variationAjax(variation.variation_id, body_wrap, DivParent);
+					} else {
+
+						if (wpgs_js_data.thumbnails_lightbox != 1) {
+
+							console.log('slick go to');
+							$('.wpgs-for').slick('slickGoTo', 0);
+
+						}
+
 					}
 
 
@@ -343,13 +352,13 @@
 
 	$(document).ready(function () {
 		cix_product_gallery_slider_int();
-		
+
 	});
 	//YITH quick view support
 	$(document).on('qv_loader_stop', function () {
 		cix_product_gallery_slider_int();
 	});
-	
+
 
 
 })(jQuery);
