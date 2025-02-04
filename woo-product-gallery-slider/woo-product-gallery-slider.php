@@ -5,7 +5,7 @@
  * Plugin Name:       Product Gallery Slider for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woo-product-gallery-slider/
  * Description:       Best product image gallery slider for WooCommerce. It shows your WooCommerce products with an image carousel slider. Beautiful style, increase sales and get customer attention.
- * Version:           2.3.15
+ * Version:           2.3.16
  * Author:            Codeixer
  * Author URI:        http://codeixer.com
  * License:           GPL-2.0+
@@ -14,7 +14,7 @@
  * Domain Path:       /languages
  * Tested up to: 6.7
  * WC requires at least: 3.9
- * WC tested up to: 9.5.2
+ * WC tested up to: 9.6
  * Requires PHP: 7.4
  * Requires Plugin: WooCommerce
  */
@@ -22,6 +22,20 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
+}
+add_action(
+	'before_woocommerce_init',
+	function () {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', __FILE__, false );
+		}
+	}
+);
+if ( Defined( 'WPGS' ) ) {
+	return;
 }
 require __DIR__ . '/vendor/autoload.php';
 
@@ -55,14 +69,6 @@ cdx_init_tracker_woo_product_gallery_slider();
 
 NS7_RDNC::instance()->add_notification( 72, 'a9873a6e608e946e', 'https://www.codeixer.com' );
 
-add_action(
-	'before_woocommerce_init',
-	function () {
-		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
-		}
-	}
-);
 final class CI_WPGS {
 
 	/**
@@ -70,7 +76,7 @@ final class CI_WPGS {
 	 *
 	 * @var string
 	 */
-	const version = '2.3.14';
+	const version = '2.3.16';
 
 	private function __construct() {
 

@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Product_Gallery_Sldier\\' => array($baseDir . '/src'),
-    'Appsero\\' => array($vendorDir . '/appsero/client/src'),
 );

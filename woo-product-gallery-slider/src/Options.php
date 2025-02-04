@@ -63,7 +63,7 @@ class Options {
 				'show_footer'     => true,
 				'show_bar_menu'   => false,
 				'save_defaults'   => true,
-				'footer_credit'   => 'Please Rate <strong>Product Gallery Slider for WooCommerce</strong> on <a href="https://wordpress.org/support/plugin/woo-product-gallery-slider/reviews/?filter=5" target="_blank"> WordPress.org</a>  to help us spread the word. Thank you from the Codeixer team!',
+				'footer_credit'   => 'Thank you from the Codeixer team!',
 				'footer_text'     => '',
 
 			)

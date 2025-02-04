@@ -11,20 +11,12 @@ class ComposerStaticInita0a14dfed5acb57c47df9d6218459c36
         array (
             'Product_Gallery_Sldier\\' => 23,
         ),
-        'A' => 
-        array (
-            'Appsero\\' => 8,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Product_Gallery_Sldier\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
-        ),
-        'Appsero\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/appsero/client/src',
         ),
     );
 

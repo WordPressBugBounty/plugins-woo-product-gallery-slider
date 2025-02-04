@@ -11,7 +11,7 @@
     ],
     "require": {
         "niloys7/remote-admin-notification-client": "dev-main",
-        "appsero/client": "^2.0",
+    
         "collizo4sky/persist-admin-notices-dismissal": "dev-master"
     },
     "autoload": {

@@ -27,11 +27,31 @@ class Bootstrap {
 		if ( time() > strtotime( get_option( 'ciwpgs_installed' ) . ' + 5 Days' ) ) {
 			add_action( 'admin_notices', array( $this, 'review' ), 10 );
 		}
+		add_action( 'csf_options_before', array( $this, 'update_notice_option' ) );
 		add_action( 'admin_init', array( $this, 'wcpg_param_check' ), 10 );
 		add_action( 'plugin_action_links_' . CIPG_FILE, array( $this, 'wpgs_plugin_row_meta' ), 90 );
 		add_action( 'admin_init', array( 'PAnD', 'init' ) );
 	}
-	
+	// notice for option page
+	/**
+	 * @return null
+	 */
+	function update_notice_option() {
+		$currentScreen = get_current_screen();
+		
+		if ( 'codeixer_page_cix-gallery-settings' != $currentScreen->id ) {
+			return;
+		}
+		?>
+		<div class="notice ciplugin-review">
+		<p><img draggable="false" class="emoji" alt="🎉" src="https://s.w.org/images/core/emoji/11/svg/1f389.svg"><strong style="font-size: 19px; margin-bottom: 5px; display: inline-block;" ><?php echo __( 'Thanks for using Product gallery slider for WooCommerce.', 'woo-product-gallery-slider' ); ?></strong><br> <?php _e( 'If you have a moment, we’d truly appreciate your support—please consider leaving us a 5-star review on WordPress.org. 🙌', 'woo-product-gallery-slider' ); ?></p>
+		<p class="dfwc-message-actions">
+			<a style="margin-right:5px;" href="https://wordpress.org/support/plugin/woo-product-gallery-slider/reviews/#new-post" target="_blank" class="button"><?php _e( 'Happy To Help', 'woo-product-gallery-slider' ); ?></a>
+			
+		</p>
+		</div>
+		<?php
+	}
 	/**
 	 * Admin scripts/styles
 	 *

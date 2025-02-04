@@ -288,9 +288,9 @@
 						cix_product_gallery_slider.variationAjax(variation.variation_id, body_wrap, DivParent);
 					} else {
 
-						if (wpgs_js_data.thumbnails_lightbox != 1) {
+						if (wpgs_js_data.thumbnails_lightbox != 1 && variation.wavi_value) {
 
-							console.log('slick go to');
+							
 							$('.wpgs-for').slick('slickGoTo', 0);
 
 						}
