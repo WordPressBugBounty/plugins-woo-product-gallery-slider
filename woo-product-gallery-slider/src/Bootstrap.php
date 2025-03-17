@@ -27,7 +27,8 @@ class Bootstrap {
 		if ( time() > strtotime( get_option( 'ciwpgs_installed' ) . ' + 5 Days' ) ) {
 			add_action( 'admin_notices', array( $this, 'review' ), 10 );
 		}
-		add_action( 'csf_options_before', array( $this, 'update_notice_option' ) );
+		add_action( 'csf_options_after', array( $this, 'update_notice_option' ) );
+		add_action( 'csf_options_before', array( $this, 'update_notice_ltd' ) );
 		add_action( 'admin_init', array( $this, 'wcpg_param_check' ), 10 );
 		add_action( 'plugin_action_links_' . CIPG_FILE, array( $this, 'wpgs_plugin_row_meta' ), 90 );
 		add_action( 'admin_init', array( 'PAnD', 'init' ) );
@@ -36,6 +37,26 @@ class Bootstrap {
 	/**
 	 * @return null
 	 */
+	function update_notice_ltd() {
+		$currentScreen = get_current_screen();
+		
+		if ( 'codeixer_page_cix-gallery-settings' != $currentScreen->id ) {
+			return;
+		}
+		?>
+		<div class="notice ciplugin-review">
+		<p style="font-size: 15px; margin: 0 0 12px 0;">Thank you for using <strong>Product Gallery Slider for WooCommerce</strong>! As a special offer, we're giving you <strong>LIFETIME access</strong> for the price of our yearly plan - <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 3px;">only $59</span> (normally $59/year)!</p>
+
+<ul style="margin: 0 0 12px 0; padding-left: 20px;">
+ 	<li>🔥 <strong>Same price as 1 year</strong> - use forever!</li>
+ 	<li>🚀 Premium updates &amp; support included</li>
+ 	<li>💡 14-day money back guarantee</li>
+</ul>
+<a class="button button-primary" style="margin-right: 10px;" target="_" href="https://codeixer.com/forever-deal">🔥 Grab Lifetime Access Now</a>
+<p style="margin: 10px 0 0 0; font-size: 13px; color: red;">🚨 This special price is available for the next 100 licenses only. After that, it will no longer be offered. - Claim yours now!</p>
+		</div>
+		<?php
+	}
 	function update_notice_option() {
 		$currentScreen = get_current_screen();
 		

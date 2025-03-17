@@ -191,6 +191,7 @@ tr.number_field_ci input {
 .notice.ciplugin-review {
     border: 0px;
     padding: 10px 20px;
+    margin-left: 0px;
 }
 .ciplugin-offer {
     padding: 10px 25px;

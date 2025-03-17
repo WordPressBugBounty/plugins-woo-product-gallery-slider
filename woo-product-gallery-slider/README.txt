@@ -4,7 +4,7 @@ Tags: additional variation image, product gallery slider,woocommerce product gal
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  6.7
-Stable tag: 2.3.16
+Stable tag: 2.3.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,10 +102,6 @@ If you like this product gallery plugin, then consider checking out our other fr
 
 [WooCommerce Wishlist](https://wordpress.org/plugins/jvm-woocommerce-wishlist/) – Enhance your e-commerce store’s functionality with WooCommerce Wishlist – the ultimate tool that adds a powerful and lightweight wishlist feature.
 
-[Show Stock for WooCommerce](https://wordpress.org/plugins/woo-show-stock/)
-
-[Order Status Control for WooCommerce](https://wordpress.org/plugins/order-status-control-for-woocommerce/)
-
 == Installation ==
 
 
@@ -131,6 +127,10 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.17 - 18 Mar 25 =
+
+* Fixed: minor bugs
 
 = 2.3.16 - 4 Feb 25 =
 

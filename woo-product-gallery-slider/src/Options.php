@@ -63,7 +63,7 @@ class Options {
 				'show_footer'     => true,
 				'show_bar_menu'   => false,
 				'save_defaults'   => true,
-				'footer_credit'   => 'Thank you from the Codeixer team!',
+				'footer_credit'   => '',
 				'footer_text'     => '',
 
 			)
@@ -77,12 +77,7 @@ class Options {
 				'title'  => 'General Options',
 				'icon'   => 'fas fa-sliders-h',
 				'fields' => array(
-					// A Notice
-					array(
-						'type'    => 'submessage',
-						'style'   => 'warning',
-						'content' => '<p style="font-size:15px">✨ Secure the pro version lifetime deal at a discounted price before it’s too late! <a target="_" href="https://www.codeixer.com/gallery-slider-for-woocommerce/#pricing-v2?utm_source=freemium&amp;utm_medium=admin_top_banner&amp;utm_campaign=ltd_twist">Claim your copy now.</a></p>',
-					),
+					
 					array(
 						'type'    => 'submessage',
 						'style'   => 'info',
