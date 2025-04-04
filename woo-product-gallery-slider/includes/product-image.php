@@ -137,7 +137,7 @@ do_action( 'wpgs_before_image_gallery' );
 					$gallery_thumbnail_size,
 					true,
 					array(
-						'class' => 'woocommerce-product-gallery__image wpgs-thumb-main-image',
+						'class' => 'woocommerce-product-gallery__image gallery_thumbnail_first ',
 						'alt'   => trim( wp_strip_all_tags( get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true ) ) ),
 					)
 				);

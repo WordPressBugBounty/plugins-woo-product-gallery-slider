@@ -70,6 +70,8 @@ class Product {
 			remove_action( 'woocommerce_before_single_product_summary', array( $this, 'wpgs_product_image' ), 20 );
 		}
 		add_filter( 'astra_addon_override_single_product_layout', '__return_false' );
+		add_filter( 'yith_wccl_enable_handle_variation_gallery', '__return_false', 99 );
+
 	}
 
 	/**

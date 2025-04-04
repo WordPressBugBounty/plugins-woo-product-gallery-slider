@@ -107,7 +107,7 @@ function wpgs_plugin_meta_links( $links, string $file ) {
 		return $links;
 	}
 
-	$support_link = '<a style="color:red;" target="_blank" href="https://codeixer.com/contact-us/" title="' . __( 'Get help', 'woo-product-gallery-slider' ) . '">' . __( 'Support', 'woo-product-gallery-slider' ) . '</a>';
+	$support_link = '<a style="color:red;" target="_blank" href="https://codeixer.com/contact-us/" title="' . __( 'Get help', 'woo-product-gallery-slider' ) . '">' . __( 'Help & Support', 'woo-product-gallery-slider' ) . '</a>';
 	$rate_twist   = '<a target="_blank" href="https://wordpress.org/support/plugin/woo-product-gallery-slider/reviews/?filter=5"> Rate this plugin » </a>';
 
 	$links[] = $support_link;
@@ -283,3 +283,24 @@ if ( ! function_exists( 'wpgs_get_image_gallery_thumb_html' ) ) {
 
 // Phlox Pro "shop" plugin conflicts with gallery html markup
 remove_filter( 'woocommerce_single_product_image_thumbnail_html', 'auxin_single_product_lightbox', 10, 2 );
+
+// Hook into the 'woocommerce_gallery_thumbnail_size' filter
+add_filter(
+	'woocommerce_gallery_thumbnail_size',
+	function ( $size ) {
+
+		$gallery_thumbnail = wc_get_image_size( wpgs_get_option( 'thumbnail_image_size' ) );
+		
+		if ( in_array( $gallery_thumbnail, array( 'thumbnail', 'medium', 'medium_large', 'large' ), true ) ) {
+
+			$width  = get_option( "{$gallery_thumbnail}_size_w" );
+			$height = get_option( "{$gallery_thumbnail}_size_h" );
+			$size   = array( $width, $height );
+
+		} else {
+			$size = array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] );
+		}
+
+		return $size;
+	}
+);

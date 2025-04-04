@@ -4,7 +4,7 @@ Tags: additional variation image, product gallery slider,woocommerce product gal
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  6.7
-Stable tag: 2.3.17
+Stable tag: 2.3.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,12 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.18 - 2 Apr 25 =
+
+* Fixed: YITH WooCommerce Product Add-ons & Extra Options plugin conflict
+* Fixed: Gallery not refresh if additional images are not added
+* Fixed: Zoom image not refresh if additional images are not added
 
 = 2.3.17 - 18 Mar 25 =
 
