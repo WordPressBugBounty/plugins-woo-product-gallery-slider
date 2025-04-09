@@ -3,8 +3,8 @@ Contributors: codeixer,im_niloy
 Tags: additional variation image, product gallery slider,woocommerce product gallery slider,woocommerce product image slider,woocommerce product gallery carousel
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to:  6.7
-Stable tag: 2.3.18
+Tested up to:  6.8
+Stable tag: 2.3.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,10 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.19 - 9 Apr 25 =
+
+* Fixed: gallery error if the use any custom image size
 
 = 2.3.18 - 2 Apr 25 =
 
