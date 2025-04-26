@@ -284,3 +284,39 @@ if ( ! function_exists( 'wpgs_get_image_gallery_thumb_html' ) ) {
 // Phlox Pro "shop" plugin conflicts with gallery html markup
 remove_filter( 'woocommerce_single_product_image_thumbnail_html', 'auxin_single_product_lightbox', 10, 2 );
 
+add_action(
+	'woocommerce_admin_field_payment_gateways',
+	'bayna_plugin_bannner'
+);
+function bayna_plugin_banner() {
+		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+	if ( is_plugin_active( 'deposits-for-woocommerce/deposits-for-woocommerce.php' ) ) {
+
+		$bayna_plugin_btn        = __( 'Check Options', 'woo-product-gallery-slider' );
+		$bayna_plugin_activate   = true;
+		$bayna_plugin_plugin_url = admin_url( 'admin.php?page=deposits_settings' );
+
+	} elseif ( file_exists( WP_PLUGIN_DIR . '/deposits-for-woocommerce/deposits-for-woocommerce.php' ) ) {
+
+		$bayna_plugin_btn        = __( 'Activate Now', 'woo-product-gallery-slider' );
+		$bayna_plugin_activate   = false;
+		$bayna_plugin_plugin_url = wp_nonce_url( 'plugins.php?action=activate&plugin=deposits-for-woocommerce/deposits-for-woocommerce.php&plugin_status=all&paged=1', 'activate-plugin_deposits-for-woocommerce/deposits-for-woocommerce.php' );
+
+	} else {
+
+		$bayna_plugin_btn        = __( 'Install Now', 'woo-product-gallery-slider' );
+		$bayna_plugin_activate   = false;
+		$bayna_plugin_plugin_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=deposits-for-woocommerce' ), 'install-plugin_deposits-for-woocommerce' );
+
+	}
+	if ( $bayna_plugin_activate ) {
+		return;
+	}
+		echo '<div class="notice notice-info">
+	<h2>Need Deposits or Partial Payments? Try Deposits for WooCommerce for Free!</h2>
+	<p>Want to offer deposits, partial payments, or flexible payment plans in your WooCommerce store? Deposits for WooCommerce is the ultimate solution!</p>
+	<p><a href="' . $bayna_plugin_plugin_url . '" class="button button-primary">' . $bayna_plugin_btn . '</a></p>
+	
+	</div>';
+}

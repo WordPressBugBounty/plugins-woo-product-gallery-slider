@@ -43,19 +43,7 @@ class Bootstrap {
 		if ( 'codeixer_page_cix-gallery-settings' != $currentScreen->id ) {
 			return;
 		}
-		?>
-		<div class="notice ciplugin-review">
-		<p style="font-size: 15px; margin: 0 0 12px 0;">Thank you for using <strong>Product Gallery Slider for WooCommerce</strong>! As a special offer, we're giving you <strong>LIFETIME access</strong> for the price of our yearly plan - <span style="background: #f1f1f1; padding: 3px 8px; border-radius: 3px;">only $59</span> (normally $59/year)!</p>
-
-<ul style="margin: 0 0 12px 0; padding-left: 20px;">
- 	<li>🔥 <strong>Same price as 1 year</strong> - use forever!</li>
- 	<li>🚀 Premium updates &amp; support included</li>
- 	<li>💡 14-day money back guarantee</li>
-</ul>
-<a class="button button-primary" style="margin-right: 10px;" target="_" href="https://codeixer.com/forever-deal">🔥 Grab Lifetime Access Now</a>
-<p style="margin: 10px 0 0 0; font-size: 13px; color: red;">🚨 This special price is available for the next 100 licenses only. After that, it will no longer be offered. - Claim yours now!</p>
-		</div>
-		<?php
+		bayna_plugin_banner();
 	}
 	function update_notice_option() {
 		$currentScreen = get_current_screen();

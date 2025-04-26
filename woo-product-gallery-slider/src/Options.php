@@ -47,6 +47,7 @@ class Options {
 
 		}
 	}
+	
 	public function pluginOptions() {
 
 		// Set a unique slug-like ID
@@ -59,7 +60,7 @@ class Options {
 				'menu_slug'       => 'cix-gallery-settings',
 				'menu_type'       => 'submenu',
 				'menu_parent'     => 'codeixer',
-				'framework_title' => 'Product Gallery Slider for WooCommerce <small>by Codeixer</small><br><a href="https://www.codeixer.com/docs-category/product-gallery-slider/" target="_" class="button">Docs</a>',
+				'framework_title' => 'Product Gallery Slider for WooCommerce <small>by Codeixer</small><br><a href="https://www.codeixer.com/docs-category/product-gallery-slider/" target="_" class="button">Docs</a><a href="https://codeixer.com/contact-us/" target="_" class="button button-primary" style="margin-left:7px">Help & Support</a>',
 				'show_footer'     => true,
 				'show_bar_menu'   => false,
 				'save_defaults'   => true,
