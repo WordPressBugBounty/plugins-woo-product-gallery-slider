@@ -286,7 +286,7 @@ remove_filter( 'woocommerce_single_product_image_thumbnail_html', 'auxin_single_
 
 add_action(
 	'woocommerce_admin_field_payment_gateways',
-	'bayna_plugin_bannner'
+	'bayna_plugin_banner'
 );
 function bayna_plugin_banner() {
 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
