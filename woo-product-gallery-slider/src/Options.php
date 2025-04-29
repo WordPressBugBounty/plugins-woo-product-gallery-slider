@@ -9,7 +9,22 @@ class Options {
 	public $jvmw_plugin_url;
 	public $jvmw_title;
 	public $jvmw_activate;
+	/**
+	 * Initializes a singleton instance
+	 *
+	 * @return $instance
+	 */
+	public static function get_instance() {
 
+		/**
+		 * @var mixed
+		 */
+		static $instance = false;
+		if ( ! $instance ) {
+			$instance = new self();
+		}
+		return $instance;
+	}
 	public function __construct() {
 
 		$this->jvmw_data();
@@ -29,25 +44,25 @@ class Options {
 
 		if ( is_plugin_active( 'jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php' ) ) {
 
-			$this->jvmw_title      = __( 'Check Options', 'woo-product-gallery-slider' );
+			$this->jvmw_title      = 'Check Options';
 			$this->jvmw_activate   = true;
 			$this->jvmw_plugin_url = apply_filters( 'cosm_admin_page', admin_url( 'admin.php?page=cixwishlist_settings' ) );
 
 		} elseif ( file_exists( WP_PLUGIN_DIR . '/jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php' ) ) {
 
-			$this->jvmw_title      = __( 'Activate Now', 'woo-product-gallery-slider' );
+			$this->jvmw_title      = 'Activate Now';
 			$this->jvmw_activate   = false;
 			$this->jvmw_plugin_url = wp_nonce_url( 'plugins.php?action=activate&plugin=jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php&plugin_status=all&paged=1', 'activate-plugin_jvm-woocommerce-wishlist/jvm-woocommerce-wishlist.php' );
 
 		} else {
 
-			$this->jvmw_title      = __( 'Install Now', 'woo-product-gallery-slider' );
+			$this->jvmw_title      = 'Install Now';
 			$this->jvmw_activate   = false;
 			$this->jvmw_plugin_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=jvm-woocommerce-wishlist' ), 'install-plugin_jvm-woocommerce-wishlist' );
 
 		}
 	}
-	
+
 	public function pluginOptions() {
 
 		// Set a unique slug-like ID
@@ -78,7 +93,7 @@ class Options {
 				'title'  => 'General Options',
 				'icon'   => 'fas fa-sliders-h',
 				'fields' => array(
-					
+
 					array(
 						'type'    => 'submessage',
 						'style'   => 'info',
@@ -93,9 +108,8 @@ class Options {
 
 						'desc'    => 'Effect Between Product Images',
 						'options' => array(
-							'false' => __( 'Slide', 'woo-product-gallery-slider' ),
-							'true'  => __( 'Fade', 'woo-product-gallery-slider' ),
-
+							'false' => 'Slide',
+							'true'  => 'Fade',
 						),
 						'default' => 'true',
 
@@ -115,30 +129,30 @@ class Options {
 					array(
 						'id'       => 'slider_lazy_laod',
 						'type'     => 'radio',
-						'title'    => __( 'Slider Lazy Load', 'woo-product-gallery-slider' ),
+						'title'    => 'Slider Lazy Load',
 						'class'    => 'cix-only-pro',
 						'subtitle' => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
 						'options'  => array(
-							'disable'     => __( 'Disable', 'woo-product-gallery-slider' ),
-							'ondemand'    => __( 'On Demand', 'woo-product-gallery-slider' ),
-							'progressive' => __( 'Progressive', 'woo-product-gallery-slider' ),
+							'disable'     => 'Disable',
+							'ondemand'    => 'On Demand',
+							'progressive' => 'Progressive',
 						),
 						'default'  => 'disable',
 
-						'desc'     => __( 'Useful for Page Loading Speed', 'woo-product-gallery-slider' ),
+						'desc'     => 'Useful for Page Loading Speed',
 					),
 					array(
 						'id'    => 'slider_infinity',
 						'type'  => 'switcher',
-						'title' => __( 'Slide Infinitely', 'woo-product-gallery-slider' ),
-						'desc'  => __( 'Sliding Infinite Loop', 'woo-product-gallery-slider' ),
+						'title' => 'Slide Infinitely',
+						'desc'  => 'Sliding Infinite Loop',
 					),
 					array(
 						'id'      => 'slider_adaptiveHeight',
 						'type'    => 'switcher',
-						'title'   => __( 'Slide Adaptive Height', 'woo-product-gallery-slider' ),
+						'title'   => 'Slide Adaptive Height',
 						'default' => true,
-						'desc'    => __( 'Resize the Gallery Section Height to Match the Image Height', 'woo-product-gallery-slider' ),
+						'desc'    => 'Resize the Gallery Section Height to Match the Image Height',
 					),
 					array(
 						'id'       => 'slider_alt_text',
@@ -146,28 +160,28 @@ class Options {
 						'default'  => false,
 						'class'    => 'cix-only-pro',
 						'subtitle' => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'    => __( 'Slide Image Caption', 'woo-product-gallery-slider' ),
-						'desc'     => __( 'Display Image Caption / Title Text Under the Image.', 'woo-product-gallery-slider' ),
+						'title'    => 'Slide Image Caption',
+						'desc'     => 'Display Image Caption / Title Text Under the Image.',
 
 					),
 
 					array(
 						'id'    => 'slider_dragging',
 						'type'  => 'switcher',
-						'title' => __( 'Mouse Dragging', 'woo-product-gallery-slider' ),
-						'desc'  => __( 'Move Slide on Mouse Dragging ', 'woo-product-gallery-slider' ),
+						'title' => 'Mouse Dragging',
+						'desc'  => 'Move Slide on Mouse Dragging ',
 					),
 					array(
 						'id'    => 'slider_autoplay',
 						'type'  => 'switcher',
-						'title' => __( 'Slider Autoplay', 'woo-product-gallery-slider' ),
+						'title' => 'Slider Autoplay',
 
 					),
 					array(
 						'id'         => 'slider_autoplay_pause',
 						'type'       => 'switcher',
-						'title'      => __( 'Pause Autoplay', 'woo-product-gallery-slider' ),
-						'desc'       => __( 'Pause Autoplay when the Mouse Hovers Over the Product Image or Dots.', 'woo-product-gallery-slider' ),
+						'title'      => 'Pause Autoplay',
+						'desc'       => 'Pause Autoplay when the Mouse Hovers Over the Product Image or Dots.',
 						'dependency' => array( 'slider_autoplay', '==', 'true' ),
 						'default'    => true,
 					),
@@ -181,21 +195,21 @@ class Options {
 						'step'       => 1000,
 						'unit'       => 'ms',
 						'default'    => 4000,
-						'desc'       => __( '1000 ms = 1 second', 'woo-product-gallery-slider' ),
+						'desc'       => '1000 ms = 1 second',
 
 						'dependency' => array( 'slider_autoplay', '==', 'true' ),
 					),
 					array(
 						'id'    => 'dots',
 						'type'  => 'switcher',
-						'title' => __( 'Dots', 'woo-product-gallery-slider' ),
-						'desc'  => __( 'Enable Dots/Bullets for Product Image', 'woo-product-gallery-slider' ),
+						'title' => 'Dots',
+						'desc'  => 'Enable Dots/Bullets for Product Image',
 					),
 					array(
 						'id'      => 'slider_nav',
 						'type'    => 'switcher',
-						'title'   => __( 'Navigation Arrows', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Enable Navigation Arrows for Product Image Slider', 'woo-product-gallery-slider' ),
+						'title'   => 'Navigation Arrows',
+						'desc'    => 'Enable Navigation Arrows for Product Image Slider',
 						'default' => true,
 					),
 
@@ -203,9 +217,9 @@ class Options {
 						'id'         => 'slider_nav_animation',
 						'type'       => 'switcher',
 						'class'      => 'cix-only-pro',
-						'title'      => __( 'Arrows Animation', 'woo-product-gallery-slider' ),
+						'title'      => 'Arrows Animation',
 						'subtitle'   => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'desc'       => __( 'Enable Animation Slide effect for Appearing Arrows', 'woo-product-gallery-slider' ),
+						'desc'       => 'Enable Animation Slide effect for Appearing Arrows',
 						'default'    => false,
 						'dependency' => array( 'slider_nav', '==', 'true' ),
 
@@ -213,8 +227,8 @@ class Options {
 					array(
 						'id'          => 'slider_nav_color',
 						'type'        => 'color',
-						'title'       => __( 'Arrows Color', 'woo-product-gallery-slider' ),
-						'desc'        => __( 'Set Arrows Color', 'woo-product-gallery-slider' ),
+						'title'       => 'Arrows Color',
+						'desc'        => 'Set Arrows Color',
 						'default'     => '#000',
 						'output_mode' => 'color',
 						'output'      => '.wpgs-for .slick-arrow::before,.wpgs-nav .slick-prev::before, .wpgs-nav .slick-next::before',
@@ -238,24 +252,24 @@ class Options {
 						'id'      => 'lightbox_picker',
 						'type'    => 'switcher',
 						'default' => true,
-						'desc'    => esc_html__( 'Lightbox Feature on Product Image ', 'woo-product-gallery-slider' ),
-						'title'   => __( 'Image Lightbox', 'woo-product-gallery-slider' ),
+						'desc'    => 'Lightbox Feature on Product Image ',
+						'title'   => 'Image Lightbox',
 					),
 
 					array(
 						'id'         => 'lightbox_thumb_axis',
 						'type'       => 'radio',
-						'title'      => __( 'Lightbox Thumbnails Position', 'woo-product-gallery-slider' ),
+						'title'      => 'Lightbox Thumbnails Position',
 						'class'      => 'cix-only-pro',
 						'subtitle'   => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
 						'options'    => array(
-							'y' => __( 'Vertical', 'woo-product-gallery-slider' ),
-							'x' => __( 'Horizontal', 'woo-product-gallery-slider' ),
+							'y' => 'Vertical',
+							'x' => 'Horizontal',
 						),
 
 						'default'    => 'y',
 						'dependency' => array( 'lightbox_picker', '==', 'true' ),
-						'desc'       => __( 'Select Lightbox Thumbnails Position.', 'woo-product-gallery-slider' ),
+						'desc'       => 'Select Lightbox Thumbnails Position.',
 
 					),
 					array(
@@ -272,13 +286,12 @@ class Options {
 						'type'        => 'select',
 						'class'       => 'cix-only-pro',
 						'subtitle'    => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'       => __( 'Lightbox Animation', 'woo-product-gallery-slider' ),
-						'desc'        => __( 'Select Lightbox Open/close Animation Effect', 'woo-product-gallery-slider' ),
+						'title'       => 'Lightbox Animation',
+						'desc'        => 'Select Lightbox Open/close Animation Effect',
 						'placeholder' => 'Select an option',
 						'dependency'  => array( 'lightbox_picker', '==', 'true' ),
 						'options'     => array(
-							'fade' => __( 'Fade', 'woo-product-gallery-slider' ),
-
+							'fade' => 'Fade',
 						),
 						'default'     => 'fade',
 					),
@@ -287,21 +300,20 @@ class Options {
 						'type'        => 'select',
 						'class'       => 'cix-only-pro',
 						'subtitle'    => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'       => __( 'Slide Animation', 'woo-product-gallery-slider' ),
-						'desc'        => __( 'Select Lightbox Slide Animation Effect', 'woo-product-gallery-slider' ),
+						'title'       => 'Slide Animation',
+						'desc'        => 'Select Lightbox Slide Animation Effect',
 						'placeholder' => 'Select an option',
 						'dependency'  => array( 'lightbox_picker', '==', 'true' ),
 						'options'     => array(
-							'fade' => __( 'Fade', 'woo-product-gallery-slider' ),
-
+							'fade' => 'Fade',
 						),
 						'default'     => 'fade',
 					),
 					array(
 						'id'          => 'lightbox_bg',
 						'type'        => 'color',
-						'title'       => __( 'Lightbox Background', 'woo-product-gallery-slider' ),
-						'desc'        => __( 'Set Lightbox Background Color', 'woo-product-gallery-slider' ),
+						'title'       => 'Lightbox Background',
+						'desc'        => 'Set Lightbox Background Color',
 						'default'     => 'rgba(10,0,0,0.75)',
 						'output_mode' => 'background-color',
 						'output'      => '.fancybox-bg',
@@ -310,8 +322,8 @@ class Options {
 					array(
 						'id'          => 'lightbox_txt_color',
 						'type'        => 'color',
-						'title'       => __( 'Lightbox Text Color', 'woo-product-gallery-slider' ),
-						'desc'        => __( 'Set Lightbox Text Color', 'woo-product-gallery-slider' ),
+						'title'       => 'Lightbox Text Color',
+						'desc'        => 'Set Lightbox Text Color',
 						'default'     => '#fff',
 						'output_mode' => 'color',
 						'output'      => '.fancybox-caption,.fancybox-infobar',
@@ -321,24 +333,24 @@ class Options {
 						'id'         => 'lightbox_img_count',
 						'type'       => 'switcher',
 						'default'    => true,
-						'title'      => __( 'Display image count', 'woo-product-gallery-slider' ),
-						'desc'       => __( 'Display image count on top corner.', 'woo-product-gallery-slider' ),
+						'title'      => 'Display image count',
+						'desc'       => 'Display image count on top corner.',
 						'dependency' => array( 'lightbox_picker', '==', 'true' ),
 					),
 
 					array(
 						'id'         => 'lightbox_icon_color',
 						'type'       => 'color',
-						'title'      => __( 'Icon Color', 'woo-product-gallery-slider' ),
-						'desc'       => __( 'Set lightbox icon color', 'woo-product-gallery-slider' ),
+						'title'      => 'Icon Color',
+						'desc'       => 'Set lightbox icon color',
 						'default'    => '#fff',
 						'dependency' => array( 'lightbox_icon|lightbox_picker', '!=|==', 'none|true' ),
 					),
 					array(
 						'id'         => 'lightbox_icon_bg_color',
 						'type'       => 'color',
-						'title'      => __( 'Icon Background', 'woo-product-gallery-slider' ),
-						'desc'       => __( 'Set icon background color', 'woo-product-gallery-slider' ),
+						'title'      => 'Icon Background',
+						'desc'       => 'Set icon background color',
 						'default'    => '#000',
 						'dependency' => array( 'lightbox_icon|lightbox_picker', '!=|==', 'none|true' ),
 					),
@@ -359,15 +371,15 @@ class Options {
 						'id'      => 'image_zoom',
 						'type'    => 'switcher',
 						'default' => true,
-						'title'   => __( 'Zoom', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Enable Zoom Feature for Product Image.', 'woo-product-gallery-slider' ),
+						'title'   => 'Zoom',
+						'desc'    => 'Enable Zoom Feature for Product Image.',
 
 					),
 					array(
 						'id'         => 'wpgs_zis',
 						'type'       => 'image_sizes',
 						'class'      => 'cix-only-pro',
-						'title'      => __( 'Zoom Image Size', 'wpgs-td' ),
+						'title'      => 'Zoom Image Size',
 						'default'    => 'large',
 						'subtitle'   => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
 						'dependency' => array( 'image_zoom', '==', 'true' ),
@@ -376,11 +388,11 @@ class Options {
 					array(
 						'id'         => 'image_zoom_mode',
 						'type'       => 'select',
-						'title'      => __( 'Zoom Mode', 'wpgs-td' ),
+						'title'      => 'Zoom Mode',
 						'class'      => 'cix-only-pro',
 						'subtitle'   => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
 						'options'    => array(
-							'inner' => __( 'Inner', 'wpgs-td' ),
+							'inner' => 'Inner',
 						),
 						'default'    => array( 'inner' ),
 						'dependency' => array( 'image_zoom', '==', 'true' ),
@@ -390,10 +402,10 @@ class Options {
 						'type'       => 'select',
 						'class'      => 'cix-only-pro',
 						'subtitle'   => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'      => __( 'Zoom Action', 'wpgs-td' ),
+						'title'      => 'Zoom Action',
 						'dependency' => array( 'image_zoom', '==', 'true' ),
 						'options'    => array(
-							'mouseover' => __( 'Mouseover', 'wpgs-td' ),
+							'mouseover' => 'Mouseover',
 						),
 						'default'    => array( 'mouseover' ),
 
@@ -424,40 +436,40 @@ class Options {
 						'type'        => 'select',
 						'class'       => 'cix-only-pro',
 						'subtitle'    => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'       => __( 'Thumbnails Position', 'woo-product-gallery-slider' ),
+						'title'       => 'Thumbnails Position',
 						'subtitle'    => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
 						'placeholder' => 'Select an option',
 						'options'     => array(
-							'bottom' => __( 'Bottom', 'woo-product-gallery-slider' ),
-							''       => __( 'Left', 'woo-product-gallery-slider' ),
-							''       => __( 'Right', 'woo-product-gallery-slider' ),
+							'bottom' => 'Bottom',
+							''       => 'Left',
+							''       => 'Right',
 						),
 						'default'     => 'bottom',
-						'desc'        => __( 'Select Thumbnails Position.', 'woo-product-gallery-slider' ),
+						'desc'        => 'Select Thumbnails Position.',
 
 					),
 					array(
 						'id'       => 'thumbnails_lightbox',
 						'type'     => 'switcher',
 						'subtitle' => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'    => __( 'LightBox For Thumbnails', 'woo-product-gallery-slider' ),
+						'title'    => 'LightBox For Thumbnails',
 						'class'    => 'cix-only-pro',
-						'desc'     => __( 'Open Lightbox When click Thumbnails', 'woo-product-gallery-slider' ),
+						'desc'     => 'Open Lightbox When click Thumbnails',
 
 					),
 					array(
 						'id'      => 'thumb_to_show',
 						'type'    => 'number',
-						'title'   => __( 'Thumbnails To Show', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set the Number of Thumbnails to Display', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails To Show',
+						'desc'    => 'Set the Number of Thumbnails to Display',
 						'default' => 4,
 
 					),
 					array(
 						'id'      => 'thumb_scroll_by',
 						'type'    => 'number',
-						'title'   => __( 'Thumbnails Scroll By', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set the Number of Thumbnails to Scroll when an Arrow is Clicked.', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails Scroll By',
+						'desc'    => 'Set the Number of Thumbnails to Scroll when an Arrow is Clicked.',
 						'default' => 1,
 
 					),
@@ -466,9 +478,9 @@ class Options {
 						'id'      => 'thumb_nav',
 						'type'    => 'switcher',
 						'default' => true,
-						'title'   => __( 'Thumbnails Arrows', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails Arrows',
 
-						'desc'    => __( 'Show Navigation Arrows for thumbnails.', 'woo-product-gallery-slider' ),
+						'desc'    => 'Show Navigation Arrows for thumbnails.',
 
 					),
 					array(
@@ -488,8 +500,8 @@ class Options {
 					array(
 						'id'      => 'thumb_border_non_active_color',
 						'type'    => 'color',
-						'title'   => __( 'Non-Active Thumbnail Border', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set Non-Active Thumbnail Border', 'woo-product-gallery-slider' ),
+						'title'   => 'Non-Active Thumbnail Border',
+						'desc'    => 'Set Non-Active Thumbnail Border',
 						'default' => 'transparent',
 						'output'  => array( 'border-color' => '.wpgs-nav .slick-slide' ),
 
@@ -497,8 +509,8 @@ class Options {
 					array(
 						'id'      => 'thumb_border_active_color',
 						'type'    => 'color',
-						'title'   => __( 'Active Thumbnail Border', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set Active Thumbnails Border', 'woo-product-gallery-slider' ),
+						'title'   => 'Active Thumbnail Border',
+						'desc'    => 'Set Active Thumbnails Border',
 						'default' => '#000',
 						'output'  => array( 'border-color' => '.wpgs-nav .slick-current' ),
 
@@ -515,22 +527,22 @@ class Options {
 				'fields' => array(
 					array(
 						'type'    => 'heading',
-						'content' => 'Tablet : Screen width from 768px to 1024px',
+						 'content' => 'Tablet : Screen width from 768px to 1024px',
 					),
 
 					array(
 						'id'      => 'thumbnails_tabs_thumb_to_show',
 						'type'    => 'number',
-						'title'   => __( 'Thumbnails To Show', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set the Number of Thumbnails to Display', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails To Show',
+						'desc'    => 'Set the Number of Thumbnails to Display',
 						'default' => 4,
 
 					),
 					array(
 						'id'      => 'thumbnails_tabs_thumb_scroll_by',
 						'type'    => 'number',
-						'title'   => __( 'Thumbnails Scroll By', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set the Number of Thumbnails to Scroll when an Arrow is Clicked.', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails Scroll By',
+						'desc'    => 'Set the Number of Thumbnails to Scroll when an Arrow is Clicked.',
 						'default' => 1,
 
 					),
@@ -552,16 +564,16 @@ class Options {
 					array(
 						'id'      => 'thumbnails_mobile_thumb_to_show',
 						'type'    => 'number',
-						'title'   => __( 'Thumbnails To Show', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set the Number of Thumbnails to Display', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails To Show',
+						'desc'    => 'Set the Number of Thumbnails to Display',
 						'default' => 4,
 
 					),
 					array(
 						'id'      => 'thumbnails_mobile_thumb_scroll_by',
 						'type'    => 'number',
-						'title'   => __( 'Thumbnails Scroll By', 'woo-product-gallery-slider' ),
-						'desc'    => __( 'Set the Number of Thumbnails to Scroll when an Arrow is Clicked.', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnails Scroll By',
+						'desc'    => 'Set the Number of Thumbnails to Scroll when an Arrow is Clicked.',
 						'default' => 1,
 
 					),
@@ -596,7 +608,7 @@ class Options {
 						'type'        => 'number',
 						'class'       => 'cix-only-pro',
 						'subtitle'    => 'Available in <a target="_blank" href="https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=freemium&utm_medium=settings_page&utm_campaign=upgrade_pro">Pro Version!</a>',
-						'title'       => __( 'Adjust Height', 'wpgs-td' ),
+						'title'       => 'Adjust Height',
 						'dependency'  => array( 'video_render', '==', 'inner_section' ),
 						'unit'        => 'px',
 						'output'      => '.wpgs-video-wrapper',
@@ -647,13 +659,13 @@ class Options {
 					array(
 						'id'      => 'slider_image_size',
 						'type'    => 'image_sizes',
-						'title'   => __( 'Main Image Size', 'woo-product-gallery-slider' ),
+						'title'   => 'Main Image Size',
 						'default' => 'woocommerce_single',
 					),
 					array(
 						'id'      => 'thumbnail_image_size',
 						'type'    => 'image_sizes',
-						'title'   => __( 'Thumbnail Image Size', 'woo-product-gallery-slider' ),
+						'title'   => 'Thumbnail Image Size',
 						'default' => 'woocommerce_gallery_thumbnail',
 					),
 					array(
@@ -661,7 +673,7 @@ class Options {
 						'style'   => 'info',
 						'content' => 'If the image size is not loading correctly on the single product page, that becasue the image size you selected is not available for the product images. <br> To solve this problem download this plugin <a target="_blank" href="https://wordpress.org/plugins/regenerate-thumbnails/">Regenerate Thumbnails</a> and regenerate all images from "Tools > Regenerate Thumbnails" Menu',
 					),
-					
+
 					array(
 						'id'       => 'custom_css',
 						'type'     => 'code_editor',

@@ -21,7 +21,7 @@ class Bootstrap {
 	}
 	private function __construct() {
 		Product::get_instance();
-		new Options();
+		Options::get_instance();
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ), 90 );
 		if ( time() > strtotime( get_option( 'ciwpgs_installed' ) . ' + 5 Days' ) ) {
@@ -39,7 +39,7 @@ class Bootstrap {
 	 */
 	function update_notice_ltd() {
 		$currentScreen = get_current_screen();
-		
+
 		if ( 'codeixer_page_cix-gallery-settings' != $currentScreen->id ) {
 			return;
 		}
@@ -47,7 +47,7 @@ class Bootstrap {
 	}
 	function update_notice_option() {
 		$currentScreen = get_current_screen();
-		
+
 		if ( 'codeixer_page_cix-gallery-settings' != $currentScreen->id ) {
 			return;
 		}

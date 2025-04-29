@@ -4,7 +4,7 @@ Tags: additional variation image, product gallery slider,woocommerce product gal
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  6.8
-Stable tag: 2.3.20.1
+Stable tag: 2.3.20.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,10 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.20.2 - 30 Apr 25 =
+
+* Fixed: Function `_load_textdomain_just_in_time` was called incorrectly.
 
 = 2.3.20.1 - 27 Apr 25 =
 
