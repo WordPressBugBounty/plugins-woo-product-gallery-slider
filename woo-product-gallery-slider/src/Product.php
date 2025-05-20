@@ -71,7 +71,6 @@ class Product {
 		}
 		add_filter( 'astra_addon_override_single_product_layout', '__return_false' );
 		add_filter( 'yith_wccl_enable_handle_variation_gallery', '__return_false', 99 );
-
 	}
 
 	/**
@@ -136,25 +135,33 @@ class Product {
 		}
 		$data['variation_images'] = $variation_markup;
 
-			wp_send_json_success( $data );
-			wp_die(); // this is required to terminate immediately and return a proper response
+		wp_send_json_success( $data );
+		wp_die(); // this is required to terminate immediately and return a proper response
 	}
+
 	/**
-	 * @param $product_id
-	 * @return mixed
+	 * Get cached or fresh variation markup for a product.
+	 *
+	 * @param int $product_id Product ID.
+	 * @return array|null
 	 */
 	public function get_variaton_markup( $product_id ) {
-
 		$variation_cache_data = $this->wpgs_variation_images->get_cache( 'wpgs_product_variation_' . $product_id );
-		$data                 = $this->wpgs_variation_images->get_variation_data( $product_id );
 		if ( $variation_cache_data ) {
 			return $variation_cache_data;
-		} elseif ( $data ) {
-
-			$this->wpgs_variation_images->set_cache( 'wpgs_product_variation_' . $product_id, $data, apply_filters( 'wpgs_clear_variation_cache', DAY_IN_SECONDS * 7 ) );
-			return $data;
-
 		}
+
+		$data = $this->wpgs_variation_images->get_variation_data( $product_id );
+		if ( $data ) {
+			$this->wpgs_variation_images->set_cache(
+				'wpgs_product_variation_' . $product_id,
+				$data,
+				apply_filters( 'wpgs_clear_variation_cache', DAY_IN_SECONDS * 7 )
+			);
+			return $data;
+		}
+
+		return null;
 	}
 	/**
 	 * Frontend styles/scripts
@@ -289,6 +296,7 @@ class Product {
 			'carousel_mode'                     => self::option( 'thumbnails_lightbox' ),
 			'thumb_position_mobile'             => $thumb_position_mobile,
 			'variation_data'                    => $this->get_variaton_markup( $product_id ),
+			'gallery_count'                     => count( $attachment_ids ),
 
 		);
 		wp_localize_script( 'wpgs-public', 'wpgs_js_data', $wpgs_js_data );

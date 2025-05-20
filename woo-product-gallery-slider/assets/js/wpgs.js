@@ -288,9 +288,9 @@
 						cix_product_gallery_slider.variationAjax(variation.variation_id, body_wrap, DivParent);
 					} else {
 
-						if (wpgs_js_data.thumbnails_lightbox != 1 ) {
-							
-							
+						if (wpgs_js_data.gallery_count > 0 && wpgs_js_data.thumbnails_lightbox != 1) {
+
+
 							$('.woocommerce-product-gallery__image img.zoomImg').attr('src', variation.image.url);
 							$('.wpgs-for').slick('slickGoTo', 0);
 							$('.wpgs-for').slick('refresh');

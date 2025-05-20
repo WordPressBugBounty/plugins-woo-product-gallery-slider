@@ -4,16 +4,18 @@ Tags: additional variation image, product gallery slider,woocommerce product gal
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  6.8
-Stable tag: 2.3.20.2
+Stable tag: 2.3.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Enhance your customers' shopping experience and boost sales instantly with this WooCommerce Product Gallery Slider! 🚀
 
 == Description ==
-Product gallery slider for WooCommerce lets you add a customizable image carousel to your online store's default Gallery section. It enhances your product display, engages your customers, and boosts sales. 🚀
+[Product gallery slider for WooCommerce](https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=wp-org&utm_medium=plugin-description&utm_campaign=upgrade_pro) adds a responsive and customizable image slider to your WooCommerce product gallery.
+Showcase multiple images, including variation images, in a beautiful carousel that enhances the shopping experience, keeps customers engaged, and increases conversions.
+Easy to use, mobile-friendly, and designed to boost your WooCommerce store’s visual appeal and sales.
 
-[__Live Demo__](https://pgs.betteropt.in/product/a-demo-product-with-twist/) | [__Support__](https://www.codeixer.com/contact-us/) | [__Upgrade To Pro »__](https://www.codeixer.com/gallery-slider-for-woocommerce?utm_source=wp-org&utm_medium=plugin-description&utm_campaign=upgrade_pro)
+[__Live Demo__](https://pgs.betteropt.in/product/a-demo-product-with-twist/) | [__Support__](https://www.codeixer.com/contact-us/) | [__Upgrade To Pro »__](https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=wp-org&utm_medium=plugin-description&utm_campaign=upgrade_pro)
 
 Are you interested in enhancing your product page design to increase sales? Have you possibly overloaded your page with too many product images? 🤔
 
@@ -28,7 +30,7 @@ Overall, the Product Gallery Slider plugin is an excellent plugin for any WooCom
 ### 📌 Unlimited Additional Variation Images
 In WooCommerce, the default behavior allows for only one image to be inserted per product variation. Unfortunately, there is no built-in option to add multiple variation images. This limitation can be problematic when there is a need to display additional product images to enhance sales and provide a comprehensive visual representation.
 
-Introducing Product Gallery Slider, a powerful plugin that offers the ability to insert an unlimited number of additional images for each product variation. By utilizing this plugin, you can provide an enhanced browsing experience to potential customers. They will be able to view different sets of images when switching between product variations, such as color, style, and size, all at the same time. This feature-rich functionality empowers you to showcase your products more effectively, captivating customers and boosting sales. 🚀
+Introducing Product Gallery Slider, a powerful plugin that offers the ability to insert an unlimited number of [additional images for each product variation](https://www.codeixer.com/docs/additional-variation-images-in-woocommerce/). By utilizing this plugin, you can provide an enhanced browsing experience to potential customers. They will be able to view different sets of images when switching between product variations, such as color, style, and size, all at the same time. This feature-rich functionality empowers you to showcase your products more effectively, captivating customers and boosting sales. 🚀
 
 ### 📱 Responsive ready
 These days more and more people are using mobile phones to scroll E-commerce sites to check and order their products. Thus, mobile-enabled and optimized E-commerce sites remain one step ahead of others.
@@ -74,7 +76,7 @@ WooCommerce product gallery slider has a wide range of supportability for the mo
 * Advanced Zoom Options
 
 
-[__Live Demo__](https://pgs.betteropt.in/product/a-demo-product-with-twist/) | [__Support__](https://www.codeixer.com/contact-us/) | [__Upgrade To Pro »__](https://www.codeixer.com/gallery-slider-for-woocommerce?utm_source=wp-org&utm_medium=plugin-description&utm_campaign=upgrade_pro)
+[__Live Demo__](https://pgs.betteropt.in/product/a-demo-product-with-twist/) | [__Support__](https://www.codeixer.com/contact-us/) | [__Upgrade To Pro »__](https://www.codeixer.com/product-gallery-slider-for-woocommerce?utm_source=wp-org&utm_medium=plugin-description&utm_campaign=upgrade_pro)
 
 [youtube https://www.youtube.com/watch?v=grdD8pCe5zw&t=7s]
 
@@ -127,6 +129,10 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.21 - 20 May 25 =
+
+* Fixed: JavaScript error caused by missing gallery images, which previously led to "Add to Cart" failures on certain servers.
 
 = 2.3.20.2 - 30 Apr 25 =
 
