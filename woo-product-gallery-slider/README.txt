@@ -1,10 +1,10 @@
 === Product Gallery Slider, Additional Variation Images for WooCommerce ===
-Contributors: codeixer,im_niloy
+Contributors: im_niloy, codeixer
 Tags: additional variation image, product gallery slider,woocommerce product gallery slider,woocommerce product image slider,woocommerce product gallery carousel
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  6.8
-Stable tag: 2.3.21
+Stable tag: 2.3.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,12 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.22 - 30 Oct 25 =
+
+* Fixed: fatal error `Trying to access array offset on false in product-image.php`[report](https://wordpress.org/support/topic/trying-to-access-array-offset-on-false-in-product-image-php/)
+* Update: New Option under `Advanced Options` for Choose when the gallery should load via AJAX.
+* Support for WooCommerce Version 10.3.x
 
 = 2.3.21 - 20 May 25 =
 

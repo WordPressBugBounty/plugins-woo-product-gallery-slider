@@ -527,7 +527,7 @@ class Options {
 				'fields' => array(
 					array(
 						'type'    => 'heading',
-						 'content' => 'Tablet : Screen width from 768px to 1024px',
+						'content' => 'Tablet : Screen width from 768px to 1024px',
 					),
 
 					array(
@@ -655,6 +655,19 @@ class Options {
 						'attributes' => array(
 							'readonly' => 'readonly',
 						),
+					),
+					array(
+						'id'      => 'additional_gallery_load',
+						'type'    => 'select',
+						'title'   => 'Additional Gallery Trigger',
+						'desc'    => 'Choose when the gallery should load via AJAX.<br>
+						-Only if variation has additional images: AJAX will trigger only when the selected variation includes extra gallery images<br>
+						-Always trigger gallery on variation change: AJAX will run every time a variation is changed, even if that variation doesn\'t have gallery images.',
+						'options' => array(
+							'if_have_gallery'     => 'Only if variation has additional Images',
+							'always_load_gallery' => 'Always trigger gallery on variation change',
+						),
+						'default' => 'if_have_gallery',
 					),
 					array(
 						'id'      => 'slider_image_size',

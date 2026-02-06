@@ -94,14 +94,16 @@ do_action( 'wpgs_before_image_gallery' );
 
 		if ( $attachment_ids ) {
 			foreach ( $attachment_ids as $attachment_id ) {
+				$zoom_image      = wp_get_attachment_image_src( $attachment_id, apply_filters( 'gallery_slider_zoom_image_size', 'full' ) );
+				$zoom_url        = $zoom_image ? $zoom_image[0] : '';
 				$thumbnail_image = wp_get_attachment_image(
 					$attachment_id,
 					$gallery_options['slider_image_size'],
 					true,
 					array(
 						'class'            => 'attachment-shop_single',
-						'data-zoom_src'    => wp_get_attachment_image_src( $attachment_id, apply_filters( 'gallery_slider_zoom_image_size', 'full' ) )[0],
-						'data-large_image' => wp_get_attachment_image_src( $attachment_id, apply_filters( 'gallery_slider_zoom_image_size', 'full' ) )[0],
+						'data-zoom_src'    => $zoom_url,
+						'data-large_image' => $zoom_url,
 						'alt'              => trim( wp_strip_all_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ),
 					)
 				);

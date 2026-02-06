@@ -297,6 +297,7 @@ class Product {
 			'thumb_position_mobile'             => $thumb_position_mobile,
 			'variation_data'                    => $this->get_variaton_markup( $product_id ),
 			'gallery_count'                     => count( $attachment_ids ),
+			'additional_ajax_trigger'           => self::option( 'additional_gallery_load', 'if_have_gallery' ),
 
 		);
 		wp_localize_script( 'wpgs-public', 'wpgs_js_data', $wpgs_js_data );

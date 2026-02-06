@@ -43,7 +43,8 @@ class Bootstrap {
 		if ( 'codeixer_page_cix-gallery-settings' != $currentScreen->id ) {
 			return;
 		}
-		bayna_plugin_banner();
+		cdx_divi_theme_bannar();
+
 	}
 	function update_notice_option() {
 		$currentScreen = get_current_screen();

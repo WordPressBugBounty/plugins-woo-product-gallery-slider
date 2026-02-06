@@ -218,3 +218,18 @@ function bayna_plugin_banner() {
 		<p><a href="' . esc_url( $bayna_plugin_plugin_url ) . '" class="button button-primary">' . esc_html( $bayna_plugin_btn ) . '</a></p>
 	</div>';
 }
+function cdx_divi_theme_bannar() {
+	if ( ! defined( 'ET_CORE_VERSION' ) || ( defined( 'ET_CORE_VERSION' ) && wpgs_get_option( 'check_divi_builder' ) != 0 ) ) {
+		return;
+	}
+	?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <strong>Heads up!</strong><br>
+                Since you are using the <strong>Divi theme</strong>, please make sure you enable the
+                <em>Divi Page Builder</em> under <strong>Advanced Options</strong>.  
+                Otherwise, the gallery will not display correctly on the frontend.
+            </p>
+        </div>
+        <?php
+}
