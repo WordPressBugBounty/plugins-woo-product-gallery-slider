@@ -169,9 +169,7 @@ if ( ! function_exists( 'wpgs_get_image_gallery_thumb_html' ) ) {
 				'src'        => esc_url( apply_filters( 'wpgs_lazyload_src', wp_get_attachment_image_url( $attachment_id, $size ) ) ),
 				'data-lazy'  => esc_url( wp_get_attachment_image_url( $attachment_id, $size ) ),
 				'data-thumb' => esc_url( wp_get_attachment_image_url( $attachment_id, $size ) ),
-			),
-			$attachment_id,
-			$main_image
+			)	
 		);
 
 		if ( apply_filters( 'wpgs_carousel_mode', true ) !== true ) {

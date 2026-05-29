@@ -263,7 +263,7 @@
 			variation_form.on('found_variation', function (event, variation) {
 
 
-				if (wpgs_variation_list.hasOwnProperty(variation.variation_id)) {
+				if (wpgs_variation_list?.hasOwnProperty(variation.variation_id)) {
 
 					body_wrap.find('.woocommerce-product-gallery').remove();
 					DivParent.prepend(wpgs_variation_list[variation.variation_id]);

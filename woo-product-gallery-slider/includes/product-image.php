@@ -76,7 +76,7 @@ do_action( 'wpgs_before_image_gallery' );
 
 			$lightbox_src = wc_get_product_attachment_props( $post_thumbnail_id );
 
-			$img_caption = get_the_title( $post_thumbnail_id );
+			$img_caption = wp_kses_post( get_the_title( $post_thumbnail_id ) );
 		if ( apply_filters( 'wpgs_show_featured_image_in_gallery', true ) ) {
 
 			if ( '1' == $gallery_options['lightbox_picker'] ) {
@@ -109,7 +109,7 @@ do_action( 'wpgs_before_image_gallery' );
 				);
 				$lightbox_src    = wc_get_product_attachment_props( $attachment_id );
 
-				$img_caption     = get_the_title( $attachment_id );
+				$img_caption     = wp_kses_post( get_the_title( $attachment_id ) );
 				$attachment_html = '';
 				if ( '1' == $gallery_options['lightbox_picker'] ) {
 					$attachment_html .= '<div><a class="wpgs-lightbox-icon" data-fancybox="wpgs-lightbox"                 data-caption="' . $img_caption . '"                 href="' . $lightbox_src['url'] . '" data-mobile=["clickContent:close","clickSlide:close"] 				data-click-slide="close" 				data-animation-effect="fade" 				data-loop="true"                 data-hash="false"                 data-infobar="' . $lightbox_img_count . '"                 >' . $thumbnail_image . '</a></div>';

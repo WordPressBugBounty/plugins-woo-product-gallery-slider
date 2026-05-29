@@ -248,8 +248,10 @@ class Product {
 		$centerMode    = false;
 		if ( is_product() ) {
 			if ( count( $attachment_ids ) + 1 > 2 && count( $attachment_ids ) + 1 < $thumb_to_show - 1 && 'bottom' == $thumb_position ) {
-				$variableWidth = true;
-				$centerMode    = true;
+				$thumb_to_show = count( $attachment_ids ) + 1;
+
+				// $variableWidth = true;
+				// $centerMode    = true;
 			}
 		}
 		// Localize the script with new data

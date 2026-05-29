@@ -19,10 +19,10 @@ if ( ! class_exists( 'Codeixer_Plugin_Core' ) ) {
 		}
 
 		public function codeixer_admin_menu() {
-			add_menu_page( 'Codeixer', 'Codeixer', 'manage_options', 'codeixer', null, 'dashicons-codeixer', 60 );
+			add_menu_page( 'Codeixer', 'Codeixer', 'manage_woocommerce', 'codeixer', null, 'dashicons-codeixer', 60 );
 			// * == License Activation Page ==
 			if ( apply_filters( 'has_codeixer_pro', false ) ) {
-				add_submenu_page( 'codeixer', 'Dashboard', 'Dashboard', 'manage_options', 'codeixer-dashboard', array( $this, 'codeixer_license' ) );
+				add_submenu_page( 'codeixer', 'Dashboard', 'Dashboard', 'manage_woocommerce', 'codeixer-dashboard', array( $this, 'codeixer_license' ) );
 			}
 			do_action( 'codeixer_sub_menu' );
 		}
