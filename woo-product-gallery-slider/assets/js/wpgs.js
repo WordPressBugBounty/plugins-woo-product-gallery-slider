@@ -267,15 +267,19 @@
 
 					body_wrap.find('.woocommerce-product-gallery').remove();
 					DivParent.prepend(wpgs_variation_list[variation.variation_id]);
-					cix_product_gallery_slider.lazyLoad();
-					cix_product_gallery_slider.slick();
-					cix_product_gallery_slider.lightBox();
-					cix_product_gallery_slider.misc();
+					setTimeout(function () {
+						cix_product_gallery_slider.lazyLoad();
+						cix_product_gallery_slider.slick();
+						cix_product_gallery_slider.lightBox();
+						cix_product_gallery_slider.misc();
+					}, 500);
 
 
 				} else {
 					if (wpgs_js_data.additional_ajax_trigger == 'if_have_gallery') {
+
 						if (variation.wavi_value) {
+							
 							// Set BlockUI on any element
 							body_wrap.find('.woocommerce-product-gallery').block({
 								message: null,
@@ -285,20 +289,23 @@
 									opacity: 0.6
 								}
 							});
+
 							cix_product_gallery_slider.variationAjax(variation.variation_id, body_wrap, DivParent);
 						} else {
 
-							if (wpgs_js_data.gallery_count > 0 && wpgs_js_data.thumbnails_lightbox != 1) {
-
+							if (wpgs_js_data.gallery_count > 0 && wpgs_js_data.thumbnails_lightbox != 1 && variation.wavi_value != '') {
 
 								$('.woocommerce-product-gallery__image img.zoomImg').attr('src', variation.image.url);
 								$('.wpgs-for').slick('slickGoTo', 0);
 								$('.wpgs-for').slick('refresh');
-
+							}else{
+								cix_product_gallery_slider.variationAjax(variation.variation_id, body_wrap, DivParent);
 							}
 
 						}
-					}else{
+
+
+					} else {
 						cix_product_gallery_slider.variationAjax(variation.variation_id, body_wrap, DivParent);
 					}
 
@@ -334,6 +341,7 @@
 					cix_product_gallery_slider.slick();
 					cix_product_gallery_slider.lightBox();
 					cix_product_gallery_slider.misc();
+
 				},
 				error: function () {
 					console.log('Ajax Error: variationAjax');

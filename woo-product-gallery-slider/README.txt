@@ -3,8 +3,8 @@ Contributors: im_niloy, codeixer
 Tags: additional variation image, product gallery slider,woocommerce product gallery slider,woocommerce product image slider,woocommerce product gallery carousel
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to:  6.8
-Stable tag: 2.3.22
+Tested up to:  7.1
+Stable tag: 2.3.24
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,13 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.24 - 1 Oct 2026 =
+
+* Fixed: Dependency error on the product page.
+* Fixed: Gallery error with the default variation gallery introduced in WooCommerce 11.1.
+* Fixed: Minor bugs and issues.
+* Added Support for WooCommerce 11.1.
 
 = 2.3.23 - 29 May 2026 =
 

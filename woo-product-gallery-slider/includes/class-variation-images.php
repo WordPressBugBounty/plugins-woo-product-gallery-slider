@@ -25,7 +25,9 @@ if ( ! class_exists( 'WPGS_Variation_images' ) ) {
 			$screen = get_current_screen();
 			// Enqueue the JavaScript file only in the admin area
 			if ( is_admin() && 'product' == $screen->id ) {
-				wp_enqueue_script( 'wpgs-public', WPGS_ROOT_URL . 'assets/js/admin.js', array( 'jquery', 'csf' ), CIPG_VERSION, true );
+				CSF::$enqueue = true;
+				CSF::add_admin_enqueue_scripts();
+				wp_enqueue_script( 'wpgs-admin', WPGS_ROOT_URL . 'assets/js/admin.js', array( 'jquery', 'csf' ), CIPG_VERSION, true );
 			}
 		}
 
@@ -199,6 +201,7 @@ if ( ! class_exists( 'WPGS_Variation_images' ) ) {
 			echo '<div class="csf-onload wpgs-variaiton-wrapper" style="margin-left: -25px;">';
 
 			CSF::field(
+				
 				array(
 					'id'          => $loop,
 					'type'        => 'gallery',

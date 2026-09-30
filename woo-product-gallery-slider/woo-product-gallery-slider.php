@@ -5,15 +5,15 @@
  * Plugin Name:       Product Gallery Slider & Additional Variation Images for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woo-product-gallery-slider/
  * Description:       Best <a href="https://www.codeixer.com/product-gallery-slider-for-woocommerce/">Product Image Gallery Slider for WooCommerce</a> – Showcase your WooCommerce products with a stunning image carousel slider. Supports additional variation images, grabs customer attention, enhances your store’s visual appeal, and helps boost sales.
- * Version:           2.3.23
+ * Version:           2.3.24
  * Author:            Codeixer
  * Author URI:        http://codeixer.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woo-product-gallery-slider
  * Domain Path:       /languages
- * Tested up to: 7.0
- * WC requires at least: 3.9
+ * Tested up to: 7.1
+ * WC requires at least: 6.0
  * WC tested up to: 10.3
  * Requires PHP: 7.4
  * Requires Plugin: WooCommerce
@@ -47,6 +47,7 @@ define( 'WPGS_ROOT_URL', plugin_dir_url( __FILE__ ) . '' );
 define( 'WPGS_INC_URL', plugin_dir_url( __FILE__ ) . 'includes/' );
 define( 'WPGS_PLUGIN_BASE', plugin_basename( __FILE__ ) );
 
+
 /**
  * Initialize the plugin tracker
  *
@@ -71,12 +72,6 @@ NS7_RDNC::instance()->add_notification( 72, 'a9873a6e608e946e', 'https://www.cod
 
 final class CI_WPGS {
 
-	/**
-	 * Plugin version
-	 *
-	 * @var string
-	 */
-	const version = '2.3.21';
 
 	private function __construct() {
 
@@ -144,7 +139,7 @@ final class CI_WPGS {
 	 * @return void
 	 */
 	public function define_constants() {
-		define( 'CIPG_VERSION', self::version );
+		define( 'CIPG_VERSION', get_file_data( __FILE__, array( 'Version' => 'Version' ) )['Version']);
 		define( 'CIPG_FILE', __FILE__ );
 		define( 'CIPG_PATH', __DIR__ );
 		define( 'CIPG_URL', plugins_url( '', CIPG_FILE ) );

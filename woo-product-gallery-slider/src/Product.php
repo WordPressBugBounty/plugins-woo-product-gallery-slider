@@ -92,7 +92,7 @@ class Product {
 
 	// Output the product image before the single product summary.
 	public function wpgs_product_image() {
-		require_once CIPG_PATH . '/includes/product-image.php';
+		echo self::shortcode_render();
 	}
 	public function product_variation() {
 		if ( ! DOING_AJAX ) {
@@ -304,7 +304,7 @@ class Product {
 		);
 		wp_localize_script( 'wpgs-public', 'wpgs_js_data', $wpgs_js_data );
 		wp_enqueue_style( 'slick', CIPG_ASSETS . '/css/slick.css', null, CIPG_VERSION );
-		wp_enqueue_style( 'slick-theme', CIPG_ASSETS . '/css/slick-theme.css', null, CIPG_VERSION );
+	//	wp_enqueue_style( 'slick-theme', CIPG_ASSETS . '/css/slick-theme.css', null, CIPG_VERSION );
 		wp_enqueue_style( 'fancybox', CIPG_ASSETS . '/css/jquery.fancybox.min.css', null, CIPG_VERSION );
 
 		$custom_css = self::option( 'custom_css' );
