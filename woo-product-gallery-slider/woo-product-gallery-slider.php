@@ -5,7 +5,7 @@
  * Plugin Name:       Product Gallery Slider & Additional Variation Images for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woo-product-gallery-slider/
  * Description:       Best <a href="https://www.codeixer.com/product-gallery-slider-for-woocommerce/">Product Image Gallery Slider for WooCommerce</a> – Showcase your WooCommerce products with a stunning image carousel slider. Supports additional variation images, grabs customer attention, enhances your store’s visual appeal, and helps boost sales.
- * Version:           2.3.24
+ * Version:           2.3.25
  * Author:            Codeixer
  * Author URI:        http://codeixer.com
  * License:           GPL-2.0+
