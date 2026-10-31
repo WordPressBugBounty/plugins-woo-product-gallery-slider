@@ -231,3 +231,14 @@ function cdx_divi_theme_bannar() {
         </div>
         <?php
 }
+function cdx_ltd_dead_banner(){
+	?>
+	<div class="notice notice-info">
+		<h3>Thank you for using Product Gallery Slider for WooCommerce!</h3>
+		<p style="font-size: 15px;margin: 0 0 12px 0">Get lifetime access to Product Gallery Slider for WooCommerce for just <strong>$99</strong>! <img draggable="false" role="img" class="emoji" alt="😍" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f60d.svg"><br data-start="79" data-end="82">Original price was $149, but this special limited-time offer lets you grab it now at a huge discount.</p>
+
+		<a class="button button-primary" style="margin-right: 10px" href="https://codeixer.com/forever-deal"><img draggable="false" role="img" class="emoji" alt="🔥" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f525.svg"> Grab Lifetime Access Now</a>
+		<p style="margin: 10px 0 0 0;font-size: 13px;color: red">Don’t miss out! Only <strong>a few lifetime licenses</strong> available at $99! This exclusive price disappears in 48 hours <img draggable="false" role="img" class="emoji" alt="🚨" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f6a8.svg"> - Claim yours now!</p>
+	</div>
+		<?php
+}

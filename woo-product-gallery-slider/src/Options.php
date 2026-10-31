@@ -68,7 +68,7 @@ class Options {
 		// Set a unique slug-like ID
 		$prefix = 'wpgs_form';
 
-		\CSF::createOptions(
+		\CDX::createOptions(
 			$prefix,
 			array(
 				'menu_title'      => 'Product Gallery',
@@ -88,7 +88,7 @@ class Options {
 
 		//
 		// Create a section
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'title'  => 'General Options',
@@ -235,6 +235,13 @@ class Options {
 						'output'      => '.wpgs-for .slick-arrow::before,.wpgs-nav .slick-prev::before, .wpgs-nav .slick-next::before',
 						'dependency'  => array( 'slider_nav', '==', 'true' ),
 					),
+					array(
+						'id'      => 'slider_img_srcset',
+						'type'    => 'switcher',
+						'title'   => 'Image Srcset',
+						'desc'    => 'Enable Image Srcset for Featured Product Image',
+						'default' => true,
+					),
 
 				),
 			)
@@ -242,7 +249,7 @@ class Options {
 
 		//
 		// Create a section
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'title'  => 'Lightbox Options',
@@ -360,7 +367,7 @@ class Options {
 			)
 		);
 		// Create a section
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'title'  => 'Zoom Options',
@@ -416,7 +423,7 @@ class Options {
 			)
 		);
 		// Create a top-tab
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'id'    => 'thumbnail_tab', // Set a unique slug-like ID
@@ -425,7 +432,7 @@ class Options {
 			)
 		);
 		// Create a section
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'parent' => 'thumbnail_tab', // The slug id of the parent section
@@ -520,7 +527,7 @@ class Options {
 				),
 			)
 		);
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'parent' => 'thumbnail_tab', // The slug id of the parent section
@@ -551,7 +558,7 @@ class Options {
 				),
 			)
 		);
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'parent' => 'thumbnail_tab', // The slug id of the parent section
@@ -582,7 +589,7 @@ class Options {
 				),
 			)
 		);
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'title'  => 'Video Options',
@@ -635,7 +642,7 @@ class Options {
 			)
 		);
 		// Create a section
-		\CSF::createSection(
+		\CDX::createSection(
 			$prefix,
 			array(
 				'title'  => 'Advanced Options',
@@ -704,20 +711,22 @@ class Options {
 				),
 			)
 		);
+		// Capability first
+		if ( current_user_can( 'manage_options' ) ) {
+			\CDX::createSection(
+				$prefix,
+				array(
+					'title'  => 'Backup Settings',
+					'icon'   => 'fas fa-sync',
+					'fields' => array(
 
-		\CSF::createSection(
-			$prefix,
-			array(
-				'title'  => 'Backup Settings',
-				'icon'   => 'fas fa-sync',
-				'fields' => array(
+						array(
+							'type' => 'backup',
+						),
 
-					array(
-						'type' => 'backup',
 					),
-
-				),
-			)
-		);
+				)
+			);
+		}
 	}
 }

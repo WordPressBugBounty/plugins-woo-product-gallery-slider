@@ -4,7 +4,7 @@ Tags: additional variation image, product gallery slider,woocommerce product gal
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to:  7.1
-Stable tag: 2.3.25
+Stable tag: 2.3.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,11 @@ we're using this 'woocommerce_before_single_product_summary' this hook to overri
 
 
 == Changelog ==
+
+= 2.3.26 - 31 Oct 2026 =
+
+* Security: Added `manage_options` capability checks to the settings backup export, import, and reset AJAX actions. Backup export, import, and reset are now restricted to the plugin's own settings option key.
+* Fixed: The "Image Srcset" option now works correctly - srcset is kept when enabled and removed when disabled.
 
 = 2.3.25 - 1 Oct 2026 =
 

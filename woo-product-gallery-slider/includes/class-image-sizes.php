@@ -1,5 +1,5 @@
 <?php
-if ( ! class_exists( 'CSF_Field_image_sizes' ) ) {
+if ( ! class_exists( 'CDX_Field_image_sizes' ) ) {
 	/**
 	 *
 	 * Field: Image sizes.
@@ -7,7 +7,7 @@ if ( ! class_exists( 'CSF_Field_image_sizes' ) ) {
 	 * @version 1.0.0
 	 * @since 1.0.0
 	 */
-	class CSF_Field_image_sizes extends CSF_Fields {
+	class CDX_Field_image_sizes extends CDX_Fields {
 
 		/**
 		 * Field constructor.

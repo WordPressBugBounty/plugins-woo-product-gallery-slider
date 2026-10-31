@@ -1,0 +1,157 @@
+/**
+ * 12. Responsive
+ */
+@media only screen and (max-width:1200px){
+
+  .cdx-metabox{
+
+    .cdx-field{
+
+      .cdx-title{
+        float: none;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .cdx-fieldset{
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:782px){
+
+  .cdx-header-inner{
+    text-align: center;
+
+    h1{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .cdx-form-result{
+    float: none;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .cdx-search,
+  .cdx-header-right,
+  .cdx-header-left{
+    width: 100%;
+  }
+
+  .cdx-search{
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .cdx-footer{
+    text-align: center;
+  }
+
+  .cdx-buttons{
+    float: none;
+  }
+
+  .cdx-copyright{
+    float: none;
+    margin-top: 10px;
+  }
+
+  .cdx-nav,
+  .cdx-expand-all,
+  .cdx-reset-section,
+  .cdx-nav-background{
+    display: none !important;
+  }
+
+  .cdx-nav-normal + .cdx-content{
+    margin-left: 0;
+  }
+
+  .cdx-section-title,
+  .cdx-section{
+    display: block !important;
+  }
+
+  .cdx-field{
+
+    .cdx-title{
+      float: none;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .cdx-fieldset{
+      float: none;
+      width: 100%;
+    }
+  }
+
+  .cdx-field-color{
+
+    .button.wp-picker-clear{
+      padding: 0 8px;
+      line-height: 2.14285714;
+      min-height: 32px;
+    }
+  }
+
+  .cdx-profile-options,
+  .cdx-taxonomy-edit-fields{
+
+    > .cdx-field{
+
+      > .cdx-title{
+        float: none;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      > .cdx-fieldset{
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+
+  .cdx-nav-menu-options{
+
+    > .cdx-fields{
+      margin-left: -10px;
+      margin-right: -10px;
+
+      > .cdx-field{
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 782px) {
+
+  .cdx-modal{
+
+    .cdx-modal-inner{
+      width: 90%;
+    }
+  }
+}
+
+@media only screen and (max-height: 750px) {
+
+  .cdx-modal{
+
+    .cdx-modal-inner{
+      height: auto;
+    }
+
+    .cdx-modal-content{
+      height: calc(100vh - 200px);
+    }
+  }
+}

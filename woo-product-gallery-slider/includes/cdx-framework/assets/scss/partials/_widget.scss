@@ -1,0 +1,67 @@
+/**
+ * 04. Widget
+ */
+.cdx-widgets{
+
+  > .cdx-field{
+    position: relative;
+    top: -1px;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 12px 15px;
+
+    .cdx-title{
+      float: none;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    .cdx-fieldset{
+      float: none;
+      width: 100%;
+    }
+  }
+
+  .cdx-field-text input{
+    width: 100%;
+  }
+
+  .cdx-field-notice .cdx-notice{
+    padding: 15px;
+  }
+}
+
+.control-section{
+
+  .cdx-widgets{
+
+    > .cdx-field{
+      margin-left: -10px;
+      margin-right: -10px;
+      padding: 10px 12px;
+    }
+  }
+}
+
+.wp-block{
+
+  .cdx-widgets{
+    font-size: 13px;
+
+    > .cdx-field{
+      margin-left: -10px;
+      margin-right: -10px;
+
+      .button-primary{
+        color: #fff;
+      }
+
+      > .cdx-title{
+
+        > h4{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

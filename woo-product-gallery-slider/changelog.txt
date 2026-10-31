@@ -64,7 +64,7 @@
 * Added: Compatibility support for Astra Pro
 * Added: New filter for removing the featured image from the gallery.
 * Fixed: Remove CSS code that conflicts with slick slider
-* Fixed: Missing dependencies jQuery csf
+* Fixed: Missing dependencies jQuery cdx
 * Support for WooCommerce 9.0.x
 
 

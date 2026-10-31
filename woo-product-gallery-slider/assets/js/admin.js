@@ -4,11 +4,11 @@
     init: function () {
 
       $('#woocommerce-product-data').on('woocommerce_variations_loaded', function () {
-        $('.csf-onload').csf_reload_script();
+        $('.cdx-onload').csf_reload_script();
       });
 
       $('#variable_product_options').on('woocommerce_variations_added', function () {
-        $('.csf-onload').csf_reload_script();
+        $('.cdx-onload').csf_reload_script();
       });
 
     },

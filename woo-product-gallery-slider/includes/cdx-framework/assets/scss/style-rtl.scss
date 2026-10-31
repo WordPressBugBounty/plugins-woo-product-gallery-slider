@@ -1,0 +1,728 @@
+/**
+ *
+ * ---------------------------------------------------------
+ * CDX FRAMEWORK RTL CSS MAP
+ * ---------------------------------------------------------
+ *
+ * 01. Base
+ *     01. 01. Header
+ *     01. 02. Header Buttons
+ *     01. 03. Navigation
+ *     01. 04. Content
+ *     01. 05. Section
+ *     01. 06. Show All Settings
+ *     01. 07. Search Input
+ *     01. 08. Copyright
+ *     01. 09. Metabox
+ * 02. Fields
+ *     02. 01. Field: typography
+ *     02. 02. Field: checkbox, radio
+ *     02. 03. Field: switcher
+ *     02. 04. Field: upload
+ *     02. 05. Field: group
+ *     02. 06. Field: repeater
+ *     02. 07. Field: help
+ *     02. 08. Field: icon
+ *     02. 09. Field: gallery
+ *     02. 10. Field: sorter
+ *     02. 11. Field: tabbed
+ *     02. 12. Field: media
+ *     02. 13. Field: notice
+ *     02. 14. Field: border, spacing, dimensions
+ *     02. 15. Field: background
+ *     02. 16. Field: spinner
+ *     02. 17. Field: slider
+ *     02. 18. Field: button_set
+ *     02. 19. Field: link_color
+ *     02. 20. Field: color_group
+ *     02. 21. Field: palette
+ *     02. 22. Field: accordion
+ *     02. 23. Field: date
+ *     02. 24. Field: map
+ *     02. 25. Field: sortable
+ *     02. 26. Field: number
+ * 03. Taxonomy
+ * 04. Profile
+ * 05. Nav Menu
+ * 06. Modal
+ * 07. Customizer
+ * 08. Responsive
+ * 09. Others
+ *
+ * ---------------------------------------------------------
+ *
+ */
+
+/**
+ * 01. Base
+ */
+.cdx-options{
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+/**
+ * 01. 01. Header
+ */
+.cdx-header{
+  h1{
+    float: right;
+  }
+
+  fieldset{
+    float: left;
+  }
+}
+
+/**
+ * 01. 02. Header Buttons
+ */
+.cdx-buttons{
+  float: left;
+  direction: ltr;
+}
+
+.cdx-header-left{
+  float: right;
+}
+
+.cdx-header-right{
+  float: left;
+}
+
+/**
+ * 01. 03. Navigation
+ */
+.cdx-nav{
+  float: right;
+
+  ul{
+    clear: right;
+
+    li{
+      .cdx-active:after{
+        right: auto;
+        left: 0;
+        border-left-color: #fff;
+        border-right-color: transparent;
+      }
+
+      .cdx-arrow:after{
+        content: "\f053";
+        right: auto;
+        left: 10px;
+      }
+
+      &.cdx-tab-expanded .cdx-arrow:after{
+        transform: rotate(-90deg);
+      }
+    }
+
+    ul{
+      li{
+        a{
+          padding-right: 25px;
+          padding-left: 15px;
+        }
+      }
+
+      &:before{
+        left: auto;
+        right: 15px;
+      }
+    }
+  }
+
+  .cdx-tab-icon{
+    margin-left: 5px;
+    margin-right: 0;
+  }
+}
+
+.cdx-nav-background{
+  left: auto;
+  right: 0;
+}
+
+/**
+ * 01. 04. Content
+ */
+.cdx-content{
+  margin-left: 0;
+  margin-right: 225px;
+}
+
+/**
+ * 01. 05. Section
+ */
+.cdx-sections{
+  float: right;
+}
+
+/**
+ * 01. 06. Show all options
+ */
+.cdx-show-all .cdx-content{
+  margin-right: 0;
+  overflow: hidden;
+}
+
+.cdx-expand-all{
+  float: right;
+  right: auto;
+  left: 40px;
+  margin-right: 0;
+  margin-left: 4px;
+}
+
+/**
+ * 01. 07. Search Input
+ */
+.cdx-search{
+  float: right;
+
+  input{
+    margin: 0 0 0 5px;
+  }
+}
+
+/**
+ * 01. 08. Copyright
+ */
+.cdx-copyright{
+  float: right;
+}
+
+/**
+ * 01. 09. Metabox
+ */
+.cdx-metabox{
+  margin: -6px -12px -12px -12px;
+
+  .cdx-section-title{
+    padding: 20px;
+  }
+}
+
+.cdx-section-title{
+
+  .cdx-section-icon{
+    margin-left: 5px;
+    margin-right: 0;
+  }
+}
+
+/**
+ * 02. Fields
+ */
+.cdx-field{
+
+  .cdx-title{
+    float: right;
+  }
+
+  .cdx-fieldset{
+    float: left;
+  }
+}
+
+.cdx-pseudo-field{
+  padding: 0 0 0 5px !important;
+}
+
+/**
+ * 02. 01. Field: typography
+ */
+.cdx-field-typography{
+
+  select{
+    margin: 0;
+    width: 100%;
+  }
+
+  .cdx--blocks-inputs{
+    .cdx--blocks{
+      flex-direction: row-reverse;
+    }
+  }
+
+  .cdx--unit{
+    left: 4px;
+    right: auto;
+  }
+}
+
+/**
+ * 02. 02. Field: checkbox, radio
+ */
+.cdx-field-checkbox,
+.cdx-field-radio{
+
+  ul ul li{
+    margin-left: 0;
+    margin-right: 8px;
+
+    &:first-child{
+      margin-right: 0;
+    }
+  }
+
+  .cdx--inline-list li{
+    margin-right: 0;
+    margin-left: 15px;
+  }
+
+  .cdx--text{
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}
+
+/**
+ * 02. 03. Field: switcher
+ */
+.cdx-field-switcher{
+
+  .cdx--switcher{
+    float: right;
+  }
+
+  .cdx--label{
+    float: right;
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}
+
+/**
+ * 02. 04. Field: upload
+ */
+.cdx-field-upload{
+
+  .cdx--remove,
+  .cdx--button{
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}
+
+/**
+ * 02. 05. Field: group
+ */
+.cdx-field-group{
+
+  .cdx-cloneable-title{
+    padding: 15px 10px 15px 65px;
+  }
+
+  .cdx-cloneable-helper{
+    right: auto;
+    left: 10px;
+  }
+}
+
+/**
+ * 02. 06. Field: repeater
+ */
+.cdx-field-repeater{
+
+  .cdx-repeater-helper{
+    border-left: 0;
+    border-right: 1px solid #eee;
+  }
+}
+
+/**
+ * 02. 07. Field: help
+ */
+.cdx-help{
+  right: auto;
+  left: 5px;
+}
+
+/**
+ * 02. 08. Field: icon
+ */
+.cdx-field-icon{
+
+  .button{
+    margin-right: 0;
+    margin-left: 5px;
+  }
+
+  .cdx-icon-preview i{
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+/**
+ * 02. 09. Field: gallery
+ */
+.cdx-field-gallery{
+
+  ul li{
+    margin-right: 0;
+    margin-left: 5px;
+  }
+
+  .button{
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+/**
+ * 02. 11. Field: tabbed
+ */
+.cdx-field-tabbed{
+
+  .cdx-tabbed-nav{
+
+    .cdx--icon{
+      padding-right: 0;
+      padding-left: 5px;
+    }
+
+    a{
+      margin-right: 0;
+      margin-left: 5px;
+    }
+  }
+}
+
+/**
+ * 02. 12. Field: media
+ */
+.cdx-field-media{
+
+  .button{
+    margin-left: 0;
+    margin-right: 7px;
+  }
+
+  .hidden + .button{
+    margin-right: 0;
+  }
+}
+
+/**
+ * 02. 13. Field: notice
+ */
+.cdx-notice{
+  border-left: none;
+  border-right-style: solid;
+  border-right-width: 4px;
+}
+
+/**
+ * 02. 14. Field: border, spacing, dimensions
+ */
+.cdx-field-dimensions,
+.cdx-field-spacing,
+.cdx-field-border{
+
+  .cdx--input,
+  .cdx-fieldset{
+    direction: ltr;
+  }
+
+  .cdx--inputs,
+  .cdx--color{
+    float: right;
+  }
+
+  .cdx--color{
+    margin-right: 4px;
+    direction: rtl;
+  }
+}
+
+/**
+ * 02. 15. Field: background
+ */
+.cdx-field-background{
+
+  .cdx--block{
+    float: right;
+  }
+
+  .cdx--select,
+  .cdx--media{
+    padding-right: 0;
+  }
+
+  .cdx--title{
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+/**
+ * 02. 16. Field: spinner
+ */
+.cdx-field-spinner{
+
+  .cdx--spin{
+    float: right;
+    direction: ltr;
+  }
+}
+
+/**
+ * 02. 17. Field: slider
+ */
+.cdx-field-slider{
+
+  .cdx-slider-ui{
+    direction: ltr;
+    margin-right: 0;
+    margin-left: 15px;
+  }
+
+  .cdx--input{
+    direction: ltr;
+  }
+}
+
+/**
+ * 02. 18. Field: button_set
+ */
+.cdx-field-button_set{
+
+  .cdx--button-group{
+    float: right;
+  }
+}
+
+/**
+ * 02. 19. Field: link_color
+ */
+.cdx-field-link_color{
+
+  .cdx--left{
+    float: right;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
+
+/**
+ * 02. 20. Field: color_group
+ */
+.cdx-field-color_group{
+
+  .cdx--left{
+    float: right;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
+
+/**
+ * 02. 21. Field: palette
+ */
+.cdx-field-palette{
+
+  .cdx--palette{
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
+
+/**
+ * 02. 22. Field: accordion
+ */
+.cdx-field-accordion{
+
+  .cdx--icon{
+    margin-right: 0;
+    margin-left: 2px;
+  }
+}
+
+/**
+ * 02. 23. Field: date
+ */
+.cdx-field-date{
+
+  .cdx--to {
+    margin-left: 0;
+    margin-right: 7px;
+  }
+}
+
+/**
+ * 02. 24. Field: map
+ */
+.cdx-field-map{
+
+  .cdx--map-input:last-child {
+    padding-left: 0;
+    padding-right: 10px;
+  }
+}
+
+/**
+ * 02. 25. Field: sortable
+ */
+.cdx-field-sortable{
+
+  .cdx-sortable-helper{
+    border-left: none;
+    border-right: 1px solid #eee;
+  }
+}
+
+/**
+ * 02. 26. Field: number
+ */
+.cdx-field-number{
+
+  .cdx--wrap{
+    float: right;
+  }
+
+  .cdx--unit{
+    left: 4px;
+    right: auto;
+  }
+}
+
+/**
+ * 03. Taxonomy
+ */
+.cdx-taxonomy-add-fields{
+  margin-right: 0;
+  margin-left: 30px;
+
+  .cdx-field > .cdx-fieldset > .cdx-help{
+    left: -5px;
+    right: auto;
+  }
+}
+
+.cdx-taxonomy-edit-fields{
+  margin-right: 0;
+  margin-left: 35px;
+
+  .cdx-field > .cdx-fieldset > .cdx-help{
+    right: auto;
+    left: -5px;
+  }
+}
+
+/**
+ * 04. Profile
+ */
+.cdx-profile-options{
+
+  > h2 > .fa{
+    padding-right: 0;
+    padding-left: 7px;
+  }
+
+  > .cdx-field{
+
+    > .cdx-fieldset{
+
+      > .cdx-help{
+        left: -5px;
+        right: auto;
+      }
+    }
+  }
+}
+
+/**
+ * 05. Nav Menu
+ */
+.cdx-nav-menu-options{
+
+  > .cdx-fields{
+    margin-left: 0;
+    margin-right: -10px;
+  }
+}
+
+.cdx-nav-menu-title {
+  padding-left: 14px;
+  padding-right: 12px;
+}
+
+.cdx-nav-menu-icon{
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+/**
+ * 06. Modal
+ */
+.cdx-modal-content{
+
+  .cdx-field{
+    padding: 15px 15px 15px 30px;
+  }
+}
+
+.cdx-modal-title{
+  padding: 0 16px 0 36px;
+}
+
+.cdx-modal-close{
+  right: auto;
+  left: 0;
+}
+
+/**
+ * 07. Customizer
+ */
+.control-section{
+
+  .cdx-field{
+
+    .cdx-fieldset{
+      margin-right: 0;
+    }
+  }
+}
+
+/**
+ * 08. Responsive
+ */
+@media only screen and (max-width:1200px){
+  .cdx-metabox .cdx-field .cdx-fieldset{
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width:782px){
+  .cdx .cdx-fieldset,
+  .cdx .cdx-content{
+    margin-right: 0;
+  }
+}
+
+/**
+ * 09. Others
+ */
+.cdx-field{
+
+  .cdx--transparent-slider{
+    margin-left: 0;
+    margin-right: 2px;
+
+    .ui-slider-handle{
+      margin: 0 -11px;
+    }
+  }
+
+  .cdx--transparent-offset{
+    background-position: center right;
+  }
+
+  .cdx--transparent-text{
+    right: auto;
+    left: 10px;
+  }
+}

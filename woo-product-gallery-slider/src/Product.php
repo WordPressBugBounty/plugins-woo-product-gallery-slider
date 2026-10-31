@@ -99,9 +99,14 @@ class Product {
 			wp_die();
 		} // Not Ajax
 			// Check for nonce security
-			$nonce            = sanitize_text_field( $_POST['nonce'] );
-			$product_id       = sanitize_text_field( $_POST['product_id'] );
-			$variation_id     = sanitize_text_field( $_POST['variation_id'] );
+			$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+			if ( ! wp_verify_nonce( $nonce, 'wcavi_nonce' ) ) {
+				wp_send_json_error( 'Invalid nonce', 403 );
+			}
+
+			$product_id   = isset( $_POST['product_id'] ) ? absint( $_POST['product_id'] ) : 0;
+			$variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : 0;
+
 			$expire_time      = DAY_IN_SECONDS * 7;
 			$variation_images = get_post_meta( $variation_id, 'wavi_value', true );
 
@@ -278,6 +283,7 @@ class Product {
 			'slider_infinity'                   => $slider_infinity,
 			'slider_dragging'                   => $slider_dragging,
 			'slider_nav'                        => $slider_nav,
+			'slider_img_srcset'                 => self::option( 'slider_img_srcset', 0 ),
 			'slider_animation_speed'            => $slider_animation_speed,
 			'slider_autoplay'                   => $slider_autoplay,
 			'slider_autoplay_pause_on_hover'    => $slider_autoplay_pause_on_hover,
@@ -304,7 +310,7 @@ class Product {
 		);
 		wp_localize_script( 'wpgs-public', 'wpgs_js_data', $wpgs_js_data );
 		wp_enqueue_style( 'slick', CIPG_ASSETS . '/css/slick.css', null, CIPG_VERSION );
-	//	wp_enqueue_style( 'slick-theme', CIPG_ASSETS . '/css/slick-theme.css', null, CIPG_VERSION );
+		// wp_enqueue_style( 'slick-theme', CIPG_ASSETS . '/css/slick-theme.css', null, CIPG_VERSION );
 		wp_enqueue_style( 'fancybox', CIPG_ASSETS . '/css/jquery.fancybox.min.css', null, CIPG_VERSION );
 
 		$custom_css = self::option( 'custom_css' );

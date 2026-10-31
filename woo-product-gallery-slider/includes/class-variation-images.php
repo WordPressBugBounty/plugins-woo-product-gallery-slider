@@ -25,9 +25,9 @@ if ( ! class_exists( 'WPGS_Variation_images' ) ) {
 			$screen = get_current_screen();
 			// Enqueue the JavaScript file only in the admin area
 			if ( is_admin() && 'product' == $screen->id ) {
-				CSF::$enqueue = true;
-				CSF::add_admin_enqueue_scripts();
-				wp_enqueue_script( 'wpgs-admin', WPGS_ROOT_URL . 'assets/js/admin.js', array( 'jquery', 'csf' ), CIPG_VERSION, true );
+				CDX::$enqueue = true;
+				CDX::add_admin_enqueue_scripts();
+				wp_enqueue_script( 'wpgs-admin', WPGS_ROOT_URL . 'assets/js/admin.js', array( 'jquery', 'cdx' ), CIPG_VERSION, true );
 			}
 		}
 
@@ -163,13 +163,13 @@ if ( ! class_exists( 'WPGS_Variation_images' ) ) {
 		}
 
 		/**
-		 * Quick hack for load CSF anywhere
+		 * Quick hack for load CDX anywhere
 		 *
 		 * @return void
 		 */
 		public function add_csf() {
-			CSF::$enqueue = true;
-			CSF::add_admin_enqueue_scripts();
+			CDX::$enqueue = true;
+			CDX::add_admin_enqueue_scripts();
 		}
 		/**
 		 * @param $variations
@@ -198,9 +198,9 @@ if ( ! class_exists( 'WPGS_Variation_images' ) ) {
 		 */
 		function variation_image_option_field( $loop, $variation_data, $variation ) {
 
-			echo '<div class="csf-onload wpgs-variaiton-wrapper" style="margin-left: -25px;">';
+			echo '<div class="cdx-onload wpgs-variaiton-wrapper" style="margin-left: -25px;">';
 
-			CSF::field(
+			CDX::field(
 				
 				array(
 					'id'          => $loop,

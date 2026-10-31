@@ -44,6 +44,7 @@ class Bootstrap {
 			return;
 		}
 		cdx_divi_theme_bannar();
+		cdx_ltd_dead_banner();
 
 	}
 	function update_notice_option() {
